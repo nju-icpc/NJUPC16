@@ -1,13 +1,13 @@
 DEPS = $(shell find src) 
 
 njupc-div1.pdf : main.tex $(DEPS)
-	xelatex '\def\div1{}\input{main.tex}'
-	xelatex '\def\div1{}\input{main.tex}'
+	xelatex '\def\divone{}\input{main.tex}'
+	xelatex '\def\divone{}\input{main.tex}'
 	mv main.pdf $@
 
 njupc-div2.pdf : main.tex $(DEPS)
-	xelatex '\def\div2{}\input{main.tex}'
-	xelatex '\def\div2{}\input{main.tex}'
+	xelatex '\def\divtwo{}\input{main.tex}'
+	xelatex '\def\divtwo{}\input{main.tex}'
 	mv main.pdf $@
 
 .PHONY : ALL
