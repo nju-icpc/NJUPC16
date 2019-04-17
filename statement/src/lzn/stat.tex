@@ -1,0 +1,86 @@
+\addtocounter{ProblemNo}{1}
+\renewcommand{\ProblemName}{数据压缩}
+\begin{center}
+\huge{\Alph{ProblemNo}. \textbf{\ProblemName}} \\ [0.8cm]
+\large{\textit{时间限制：} 2 \textit{秒}} \\ [1cm]
+\end{center}
+
+Lempel-Ziv是一类常用的无损压缩算法，其基本思想是利用被压缩串中的重复出现的子串，减少存储所需空间。例如，给定被压缩串001010001010111，当我们完成0010100的压缩时，可以发现，剩下的部分（01010111）的前5位在之前出现过，这样，我们只需要拷贝从当前位置6个字符前开始，长度为5的子串即可。
+
+\begin{figure}[h]
+\centering
+\begin{BVerbatim}
+ |---| 
+001010001010111
+       ^~~~~
+\end{BVerbatim}
+\end{figure}
+
+事实上，被拷贝的子串还可以和当前被压缩的串重叠，只要被拷贝的串的起始位置在当前位置之前即可。例如：对于被压缩串1010101，如果已经完成了10的压缩，还需要压缩10101，那么我们可以拷贝从当前位置前第2个字符开始，长度为5的子串即可。这里的拷贝可以理解成逐位拷贝。
+
+\begin{figure}[h]
+\centering
+\begin{BVerbatim}
+|----|
+1010101
+  ^~~~~
+\end{BVerbatim}
+\end{figure}
+
+Lempel-Ziv-JYY是一种Lempel-Ziv算法的实现。
+
+为方便起见，我们约定：
+\begin{enumerate}
+    \item $S$表示长度为$n$的二进制串，其下标从0开始，即$S = S_0 S_1 \cdots S_{n-1}$；
+    \item $S[i:j]$表示$S$从下标$i$开始，长度为$j-i$的子串，即$S[i:j] = S_iS_{i+1} \cdots S_{j-1}$。特别的，当$i = j$时，$S[i:j]$表示空串。
+\end{enumerate}
+
+\begin{algorithm}
+\caption{Lempel-Ziv-JYY 算法}
+\begin{algorithmic}[1]
+    \Require 待压缩的二进制串 $S$
+    \Ensure 压缩的结果，包含待压缩串的首位$S_0$和若干形如\texttt{(prev, len)}的二元组。
+    \State 输出二进制串的首位 $S_0$。
+    \State $n \leftarrow \mathit{length}(S)$
+    \State $\mathit{ptr} \leftarrow 0$
+    \Repeat
+        \State $\mathit{ptr} \leftarrow \mathit{ptr} + 1$
+        \State 找出最大的$x$，使得存在$k < \mathit{ptr}$，满足$S[k:k+x] = S[\mathit{ptr}:\mathit{ptr}+x]$
+        \State 输出$(\mathit{ptr} - k, x)$
+        \State $\mathit{ptr} \leftarrow \mathit{ptr} + x$
+    \Until{$\mathit{ptr} = n$}
+\end{algorithmic}
+\end{algorithm}
+
+给你上述压缩算法输出的结果，你需要恢复被压缩的二进制串。
+
+\subsection*{输入格式}
+
+第一行包含一个整数$n$和$S[0]$，表示程序第4行输出的对数和被压缩串的第一位。
+
+接下来$n$行，每行包含两个数字$a, b$，表示程序第4行的一个输出。
+
+保证输入合法。保证被压缩的串长不超过$10^6$。
+
+\subsection*{输出格式}
+
+输出一行一个01串，表示答案。
+
+\setcounter{ExampleNo}{0}
+
+\exmpv{01-sample}
+\exmpv{02-sample}
+\exmpv{03-sample}
+
+\clearpage
+
+\ifodd\value{page}
+\else
+    \vspace*{\fill}
+    \begin{center}
+    \textbf{\Large 本页无正文}
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
+\fi
+

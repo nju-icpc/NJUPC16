@@ -1,0 +1,78 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\usepackage[left=2.0cm, right=2.0cm, top=2.0cm, bottom=2.0cm]{geometry}
+\usepackage{indentfirst}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{mathspec}
+\usepackage{xeCJK}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{verbatim}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\pagestyle{fancy}
+\chead{\large \textbf{南京大学第十六届程序设计竞赛}}
+\lfoot{\Alph{ProblemNo}. \ProblemName}
+\cfoot{}
+\rfoot{\thepage}
+\setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun}
+\setmainfont[BoldFont=Arial Bold]{Arial}
+\setmonofont{Courier New}
+\setmathsfont(Latin){Times New Roman}
+
+\setlist{nosep}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}  
+\renewcommand{\algorithmicensure}{\textbf{输出:}}  
+\newcommand{\ProblemName}{}
+\newcommand{\ProblemID}{}
+\newcounter{ProblemNo}
+\newcounter{ExampleNo}
+
+\newcommand{\exmpfilev}[1]{
+    \begin{minipage}[t]{0.47\linewidth} \vspace{0cm} \verbatiminput{#1} \vspace{0cm} \end{minipage}
+}
+\newcommand{\exmpv}[1]{
+    ~\\ [0.5cm]
+    \addtocounter{ExampleNo}{1}
+    \noindent
+    \begin{tabular}{p{0.48\linewidth}p{0.48\linewidth}}
+      \textbf{样例输入} \arabic{ExampleNo} & \textbf{样例输出} \arabic{ExampleNo} \\ \hline
+    \multicolumn{1}{|l|}{\exmpfilev{src/\ProblemID/#1.in}} & 
+    \multicolumn{1}{l|} {\exmpfilev{src/\ProblemID/#1.ans}} \\ \hline
+    \end{tabular}
+}
+\newcommand{\exmph}[1]{
+    ~\\ [0.5cm]
+    \addtocounter{ExampleNo}{1}
+    \noindent
+    \begin{tabular}{p{0.98\linewidth}}
+      \vspace{0cm}
+      \textbf{样例输入} \arabic{ExampleNo} \\ \hline
+    \multicolumn{1}{|l|}{\exmpfilev{src/\ProblemID/#1.in}} \\ \hline
+      \vspace{0cm}
+      \textbf{样例输出} \arabic{ExampleNo} \\ \hline
+    \multicolumn{1}{|l|} {\exmpfilev{src/\ProblemID/#1.ans}} \\ \hline
+    \end{tabular}
+}
+\newcommand{\problem}[1] {
+    \renewcommand{\ProblemID}{#1}
+    \input{src/\ProblemID/stat.tex}
+}
+
+\begin{document}
+
+\problem{enclosure}
+\problem{party}
+\problem{road}
+\problem{match}
+\problem{wood}
+\problem{nemu}
+\problem{view}
+\problem{card}
+\problem{network}
+\problem{scoreboard}
+
+\end{document}

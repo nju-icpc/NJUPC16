@@ -1,0 +1,6 @@
+p1
+dup
+add 1
+swap
+sub 1
+end

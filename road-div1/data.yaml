@@ -1,0 +1,82 @@
+- name: 01-sample
+  src: 01-sample.txt
+- name: 02-sample
+  src: 02-sample.txt
+- name: 11-urand
+  src: urand.py
+  flags: 2 385232
+- name: 12-urand
+  src: urand.py
+  flags: 6 385233
+- name: 13-urand
+  src: urand.py
+  flags: 10 385234
+- name: 14-urand
+  src: urand.py
+  flags: 20 385235
+- name: 15-urand
+  src: urand.py
+  flags: 298 239648
+- name: 21-urand
+  src: urand.py
+  flags: 300 4939218
+- name: 22-urand
+  src: urand.py
+  flags: 300 4939227
+- name: 31-special
+  src: 31-special.txt
+- name: 32-parallel
+  src: parallel.py
+  flags: 30 
+- name: 33-echelon
+  src: echelon.py
+  flags: 25
+- name: 34-mirror
+  src: mirror.py
+  flags: 24 4365129
+- name: 35-mirror
+  src: mirror.py
+  flags: 40 23489
+- name: 41-gap
+  src: gap.py
+  flags: 20 100000 1368015
+- name: 42-gap
+  src: gap.py
+  flags: 64 50000 134867023
+- name: 43-gap
+  src: gap.py
+  flags: 80 40000 1348678
+- name: 44-gap
+  src: gap.py
+  flags: 80 400000 2347981
+- name: 51-alt
+  src: alt.py
+  flags: 36 10000 136238
+- name: 52-alt
+  src: alt.py
+  flags: 150 20000 134867
+- name: 53-alt
+  src: alt.py
+  flags: 150 40000 134835
+
+- name: 61-plus
+  src: plus.py
+  flags: 75
+- name: 62-cross
+  src: cross.py
+  flags: 75
+- name: 63-rect
+  src: rect.py
+  flags: 75
+- name: 64-circ
+  src: circ.py
+  flags: 300
+- name: 65-grid
+  src: grid.py
+  flags: 16
+- name: 66-ccirc
+  src: ccirc.py
+  flags: 300
+
+- name: 81-special
+  src: 81-special.txt

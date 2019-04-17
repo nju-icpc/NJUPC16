@@ -1,0 +1,38 @@
+\addtocounter{ProblemNo}{1}
+\renewcommand{\ProblemName}{三视图}
+\begin{center}
+\huge{\Alph{ProblemNo}. \textbf{\ProblemName}} \\ [0.8cm]
+\large{\textit{时间限制：} 1 \textit{秒}} \\ [1cm] 
+\end{center}
+
+有$n \times m$的网格，每个方格内堆放着一些箱子。求这些箱子的三视图。
+
+\subsection*{输入格式}
+
+第一行包含两个整数$n, m$ $(1 \leq n, m \leq 100)$，表示网格的行数和列数。
+
+接下来$n$行，每行$m$个非负整数，表示该位置堆放的箱子的个数。每个位置堆放的箱子个数不超过100。保证至少有一个格子上有箱子。
+
+\subsection*{输出格式}
+
+请依次输出俯视图，正视图和侧视图。视图之间用空行分隔。
+
+对于正视图和侧视图，请保证输出的行数最小（即没有多余的全空行）。
+
+\setcounter{ExampleNo}{0}
+
+\exmpv{01-sample}
+\exmpv{02-sample}
+
+\clearpage
+
+\ifodd\value{page}
+\else
+    \vspace*{\fill}
+    \begin{center}
+    \textbf{\Large 本页无正文}
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
+\fi
+

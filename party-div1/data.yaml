@@ -1,0 +1,172 @@
+- name: 001-sample
+  src: 001-sample.txt
+- name: 002-sample
+  src: 002-sample.txt
+
+## size == 2
+- name: 011-hand
+  src: 011-hand.txt
+- name: 012-hand
+  src: 012-hand.txt
+- name: 013-hand
+  src: 013-hand.txt
+- name: 014-hand
+  src: 014-hand.txt
+- name: 015-hand
+  src: 015-hand.txt
+- name: 016-hand
+  src: 016-hand.txt
+- name: 017-hand
+  src: 017-hand.txt
+
+## size == 3, collinear
+- name: 020-hand
+  src: 020-hand.txt
+- name: 021-hand
+  src: 021-hand.txt
+- name: 022-hand
+  src: 022-hand.txt
+- name: 023-hand
+  src: 023-hand.txt
+- name: 024-hand
+  src: 024-hand.txt
+- name: 025-hand
+  src: 025-hand.txt
+- name: 026-hand
+  src: 026-hand.txt
+- name: 027-hand
+  src: 027-hand.txt
+- name: 028-hand
+  src: 028-hand.txt
+- name: 029-hand
+  src: 029-hand.txt
+- name: 030-hand
+  src: 030-hand.txt
+- name: 031-hand
+  src: 031-hand.txt
+- name: 032-hand
+  src: 032-hand.txt
+- name: 033-hand
+  src: 033-hand.txt
+- name: 034-hand
+  src: 034-hand.txt
+- name: 035-hand
+  src: 035-hand.txt
+- name: 036-hand
+  src: 036-hand.txt
+- name: 037-hand
+  src: 037-hand.txt
+- name: 038-hand
+  src: 038-hand.txt
+- name: 039-hand
+  src: 039-hand.txt
+
+- name: 040-rand3
+  src: rand.py
+  flags: 3 275923332
+- name: 041-rand3
+  src: rand.py
+  flags: 3 275923333
+- name: 042-rand3
+  src: rand.py
+  flags: 3 275923334
+- name: 043-rand3
+  src: rand.py
+  flags: 3 275923335
+- name: 044-rand3
+  src: rand.py
+  flags: 3 275923336
+- name: 045-rand3
+  src: rand.py
+  flags: 3 275923337
+- name: 046-rand3
+  src: rand.py
+  flags: 3 275923338
+- name: 047-rand3
+  src: rand.py
+  flags: 3 275923339
+- name: 048-rand3
+  src: rand.py
+  flags: 3 275923340
+- name: 049-rand3
+  src: rand.py
+  flags: 3 275923341
+- name: 050-rand3
+  src: rand.py
+  flags: 3 275923342
+- name: 051-rand3
+  src: rand.py
+  flags: 3 275923343
+- name: 052-rand3
+  src: rand.py
+  flags: 3 275923344
+- name: 053-rand3
+  src: rand.py
+  flags: 3 275923345
+- name: 054-rand3
+  src: rand.py
+  flags: 3 275923346
+- name: 055-rand3
+  src: rand.py
+  flags: 3 275923347
+- name: 056-rand3
+  src: rand.py
+  flags: 3 275923348
+- name: 057-rand3
+  src: rand.py
+  flags: 3 275923349
+- name: 058-rand3
+  src: rand.py
+  flags: 3 275923350
+- name: 059-rand3
+  src: rand.py
+  flags: 3 275923351
+- name: 060-rand3
+  src: rand.py
+  flags: 3 275923352
+- name: 061-rand3
+  src: rand.py
+  flags: 3 275923353
+- name: 062-rand3
+  src: rand.py
+  flags: 3 275923354
+- name: 063-rand3
+  src: rand.py
+  flags: 3 275923355
+- name: 064-rand3
+  src: rand.py
+  flags: 3 275923356
+- name: 065-rand3
+  src: rand.py
+  flags: 3 275923357
+- name: 081-rand5
+  src: rand.py
+  flags: 5 275923373
+- name: 086-rand10
+  src: rand.py
+  flags: 10 275923378
+
+- name: 101-rand
+  src: rand.py
+  flags: 300000 23489732
+- name: 102-rand
+  src: rand.py
+  flags: 300000 23489733
+- name: 103-rand
+  src: rand.py
+  flags: 300000 23489734
+
+- name: 151-gen
+  src: 151-gen.py
+- name: 152-gen
+  src: 152-gen.py
+- name: 153-gen
+  src: 153-gen.py
+- name: 154-gen
+  src: 154-gen.py
+- name: 155-gen
+  src: rangen.py
+  flags: 300000 999999999999999990 1000000000000000000 0 10 31432979
+- name: 156-gen
+  src: rangen.py
+  flags: 300000 999999999999999990 1000000000000000000 99999999999999990 1000000000000000000 12416982

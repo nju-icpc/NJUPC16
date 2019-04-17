@@ -1,0 +1,42 @@
+\addtocounter{ProblemNo}{1}
+\renewcommand{\ProblemName}{迎新晚会}
+\begin{center}
+\huge{\Alph{ProblemNo}. \textbf{\ProblemName}} \\ [0.8cm]
+\large{\textit{公开组时间限制：} 5 \textit{秒}} \\ 
+\large{\textit{提高组时间限制：} 7 \textit{秒}} \\ [1cm]
+\end{center}
+
+给定一系列数对$\{(x_i, y_i)\}_{i=1}^{n}$，将$[n] = \{1, 2, \cdots, n\}$划分为两个非空集合$[n] = S \cup T$，$(S, T \neq \varnothing, S \cap T = \varnothing)$，求
+$$
+\min_{S, T} | \max_{i \in S} x_i - \max_{j \in T} y_j |
+$$
+
+\subsection*{输入格式}
+
+第一行包含一个整数$n$，表示数对的个数。
+
+接下来$n$行，每行包含两个数字$x, y$，表示一个数对。
+
+对于公开组，$2 \leq n \leq 5000$；对于提高组，$2 \leq n \leq 3 \times 10^5$。
+
+\subsection*{输出格式}
+
+输出一个整数，表示答案。
+
+\setcounter{ExampleNo}{0}
+
+\exmpv{001-sample}
+\exmpv{002-sample}
+
+\clearpage
+
+\ifodd\value{page}
+\else
+    \vspace*{\fill}
+    \begin{center}
+    \textbf{\Large 本页无正文}
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
+\fi
+

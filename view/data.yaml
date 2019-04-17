@@ -1,0 +1,96 @@
+- name: 01-sample
+  src: 01-sample.txt
+- name: 02-sample
+  src: 02-sample.txt
+
+- name: 11-hand
+  src: 11-hand.txt
+- name: 12-hand
+  src: 12-hand.txt
+- name: 13-hand
+  src: 13-hand.txt
+
+- name: 21-gen
+  src: gen.py
+  flags: 100 100 "int(((i-50)**2+(j-50)**2)/5000)"
+- name: 22-gen
+  src: gen.py
+  flags: 100 100 "1 if ((i == 0 or i == w - 1) and (j == 0 or j == h - 1)) else 0"
+- name: 23-gen
+  src: gen.py
+  flags: 50 100 "1 if ((i == 0 or i == w - 1) and (j == 0 or j == h - 1)) else 0"
+- name: 24-gen
+  src: gen.py
+  flags: 100 99 "int(((i-50)**2+(j-50)**2)/5000)"
+- name: 25-gen
+  src: gen.py
+  flags: 100 100 "100 if ((i == 0 or i == w - 1) or (j == 0 or j == h - 1)) else 0"
+- name: 26-gen
+  src: gen.py
+  flags: 90 100 "100 if ((i == 0 or i == w - 1) or (j == 0 or j == h - 1)) else 0"
+- name: 27-gen
+  src: gen.py
+  flags: 100 90 "100 if ((i == 0 or i == w - 1) or (j == 0 or j == h - 1)) else 0"
+
+- name: 31-rand
+  src: rand.py
+  flags: ["random.randint(1, 100)","random.randint(1, 100)",13842,0.0]
+- name: 32-rand
+  src: rand.py
+  flags: ["random.randint(1, 100)","random.randint(1, 100)",13843,0.1]
+- name: 33-rand
+  src: rand.py
+  flags: ["random.randint(1, 100)","random.randint(1, 100)",13844,0.2]
+- name: 34-rand
+  src: rand.py
+  flags: ["random.randint(1, 100)","random.randint(1, 100)",13845,0.3]
+- name: 35-rand
+  src: rand.py
+  flags: ["random.randint(1, 100)","random.randint(1, 100)",13846,0.5]
+- name: 36-rand
+  src: rand.py
+  flags: ["random.randint(1, 100)","random.randint(1, 100)",13847,0.6]
+- name: 37-rand
+  src: rand.py
+  flags: ["random.randint(1, 100)","random.randint(1, 100)",13848,0.7]
+- name: 38-rand
+  src: rand.py
+  flags: ["random.randint(1, 100)","random.randint(1, 100)",13849,0.8]
+- name: 39-rand
+  src: rand.py
+  flags: ["random.randint(1, 100)","random.randint(1, 100)",13850,0.9]
+
+- name: 41-rand
+  src: rand.py
+  flags: ["random.randint(95, 100)","random.randint(95, 100)",23842,0.0]
+- name: 42-rand
+  src: rand.py
+  flags: ["random.randint(95, 100)","random.randint(95, 100)",23843,0.1]
+- name: 43-rand
+  src: rand.py
+  flags: ["random.randint(95, 100)","random.randint(95, 100)",23844,0.2]
+- name: 44-rand
+  src: rand.py
+  flags: ["random.randint(95, 100)","random.randint(95, 100)",23845,0.3]
+- name: 45-rand
+  src: rand.py
+  flags: ["random.randint(95, 100)","random.randint(95, 100)",23846,0.5]
+- name: 46-rand
+  src: rand.py
+  flags: ["random.randint(95, 100)","random.randint(95, 100)",23847,0.6]
+- name: 47-rand
+  src: rand.py
+  flags: ["random.randint(95, 100)","random.randint(95, 100)",13812,0.7]
+- name: 48-rand
+  src: rand.py
+  flags: ["random.randint(95, 100)","random.randint(95, 100)",13813,0.8]
+- name: 49-rand
+  src: rand.py
+  flags: ["random.randint(95,100)","random.randint(95, 100)",13814,0.9]
+
+- name: 51-rand
+  src: rand.py
+  flags: 1 100 23984 0.3
+- name: 52-rand
+  src: rand.py
+  flags: 100 1 23985 0.3

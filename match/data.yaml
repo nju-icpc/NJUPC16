@@ -1,0 +1,186 @@
+- name: 001-sample
+  src: 01-sample.txt
+- name: 002-sample
+  src: 02-sample.txt
+- name: 003-sample
+  src: 03-sample.txt
+- name: 004-sample
+  src: 04-sample.txt
+
+- name: 011-rand
+  src: gen
+  flags: 1 10 0 238756
+- name: 012-rand
+  src: gen
+  flags: 1 100 0 238757
+- name: 013-rand
+  src: gen
+  flags: 1 1000 0 238758
+- name: 014-rand
+  src: gen
+  flags: 1 10000 0 238759
+- name: 015-rand
+  src: gen
+  flags: 1 200000 0 238760
+- name: 016-rand
+  src: gen
+  flags: 1 200000 0 238761
+- name: 017-rand
+  src: gen
+  flags: 1 200000 0 238762
+- name: 018-rand
+  src: gen
+  flags: 1 200000 0 238763
+
+- name: 021-randbigprime
+  src: gen
+  flags: 2 200000 1 432865
+- name: 022-randbigprime
+  src: gen
+  flags: 2 200000 1 432866
+
+- name: 031-smallprime3
+  src: gen
+  flags: 3 3 1 374584
+- name: 032-smallprime3
+  src: gen
+  flags: 3 666 1 374585
+- name: 033-smallprime3
+  src: gen
+  flags: 3 200000 1 374586
+
+- name: 041-midsmall
+  src: gen
+  flags: 4 3009 1 243956
+- name: 042-midsmall
+  src: gen
+  flags: 4 200000 1 243957
+
+- name: 051-bigcomp
+  src: gen
+  flags: 5 200000 0 352943
+
+- name: 061-hackfactor
+  src: gen
+  flags: 6 99999 1 23753
+
+- name: 071-rand2bp
+  src: gen
+  flags: 7 99997 0 2349752
+- name: 072-rand2bp
+  src: gen
+  flags: 7 200000 0 2349753
+
+- name: 081-235
+  src: gen
+  flags: 8 99999 1 7247234
+
+- name: 091-5midp
+  src: gen
+  flags: 9 75000 1 3842345
+- name: 092-5midp
+  src: gen
+  flags: 9 88888 1 3842346
+- name: 093-5midp
+  src: gen
+  flags: 9 200000 1 3842347
+  
+- name: 101-4midp
+  src: gen
+  flags: 10 65536 1 175125
+- name: 102-4midp
+  src: gen
+  flags: 10 90000 1 175126
+- name: 103-4midp
+  src: gen
+  flags: 10 99996 1 175127
+
+- name: 111-13smallp
+  src: gen
+  flags: 11 200000 1 236874
+- name: 112-13smallp
+  src: gen
+  flags: 11 200000 1 236875
+- name: 113-13smallp
+  src: gen
+  flags: 11 200000 1 236876
+
+- name: 121-16smallp
+  src: gen
+  flags: 12 200000 1 236874
+- name: 122-16smallp
+  src: gen
+  flags: 12 200000 1 236875
+- name: 123-16smallp
+  src: gen
+  flags: 12 200000 1 236876
+
+- name: 131-prefprodp
+  src: gen
+  flags: 13 200000 0 17592
+
+- name: 141-3midp
+  src: gen
+  flags: 14 72378 1 238528
+- name: 142-3midp
+  src: gen
+  flags: 14 93744 1 238529
+- name: 143-3midp
+  src: gen
+  flags: 14 200000 1 238530
+
+- name: 151-rand20midp
+  src: gen
+  flags: 15 98765 1 7923431
+- name: 152-rand20midp
+  src: gen
+  flags: 15 92378 1 7923432
+- name: 153-rand20midp
+  src: gen
+  flags: 15 200000 1 7923433
+- name: 154-rand20midp
+  src: gen
+  flags: 15 200000 1 7923434
+- name: 155-rand20midp
+  src: gen
+  flags: 15 50000 1 7923484
+
+- name: 161-midrand
+  src: gen
+  flags: 16 73764 1 34736742
+- name: 162-midrand
+  src: gen
+  flags: 16 200000 1 34736743
+
+- name: 171-halfmidp
+  src: gen
+  flags: 17 73942 1 3257329
+- name: 172-halfmidp
+  src: gen
+  flags: 17 200000 1 3257330
+
+- name: 181-hackall
+  src: gen
+  flags: 18 200000 1 3231478432
+- name: 182-hackall
+  src: gen
+  flags: 18 200000 1 3231478433
+- name: 183-hackall
+  src: gen
+  flags: 18 200000 1 3231478434
+- name: 184-hackall
+  src: gen
+  flags: 18 200000 1 3231478435
+- name: 185-hackall
+  src: gen
+  flags: 18 200000 1 3231478436
+- name: 186-hackall
+  src: gen
+  flags: 18 200000 1 3231478437
+
+- name: 191-hand
+  src: 192-hand.txt
+- name: 192-hand
+  src: 192-hand.txt
+- name: 193-hand
+  src: 193-hand.txt

@@ -1,0 +1,11 @@
+p1
+dup
+add 1
+add 1
+dup
+add 2
+add 2
+mul 1
+swap
+pop
+end
