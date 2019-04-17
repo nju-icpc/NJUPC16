@@ -1,0 +1,42 @@
+\addtocounter{ProblemNo}{1}
+\renewcommand{\ProblemName}{Coffee or Chicken}
+\begin{center}
+\huge{\Alph{ProblemNo}. \textbf{\ProblemName}} \\ [0.8cm]
+\large{\textit{时间限制：} 1 \textit{秒}} \\ [1cm]
+\end{center}
+
+JYY创造了一种“咖啡鸡字符串”，类似于“斐波那契例汤”——第$n$天的汤是由第$n-2$天和第$n-1$天的汤混合而成的：
+
+\begin{itemize}
+  \item $S(1) = \texttt{"COFFEE"}$；
+  \item $S(2) = \texttt{"CHICKEN"}$；
+  \item $S(n) = S(n - 2) :: S(n - 1)$，其中“$::$”是字符串的拼接运算符。
+\end{itemize}
+
+随着$n$的增长，$S(n)$的长度很快就失控了，JYY的小霸王学习机没有足够的内存存储$S(n)$。JYY希望你帮助已经被降智的他求出$S(n)$从第$k$个位置开始的连续10个字符。
+
+\subsection*{输入格式}
+
+输入数据第一行包含两个整数 $n$ ($1\le n\le 100$), $k$ ($1\le k\le 10^9$)。对于普及组，$1\le k\le 10^6$。
+
+\subsection*{输出格式}
+
+输出一行，代表$S(n)$从第$k$个位置起的10个字符。如果第$k$个位置起字符数不足10个，则输出到$S(n)$末尾的所有字符。
+
+\setcounter{ExampleNo}{0}
+
+\exmpv{01-sample}
+\exmpv{02-sample}
+
+\clearpage
+
+\ifodd\value{page}
+\else
+    \vspace*{\fill}
+    \begin{center}
+    \textbf{\Large 本页无正文}
+    \end{center}
+    \vspace*{\fill}
+    \clearpage
+\fi
+
