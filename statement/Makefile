@@ -1,4 +1,4 @@
-DEPS = $(shell find src) 
+DEPS = $(shell find src -type f)
 
 njupc-div1.pdf : main.tex $(DEPS)
 	xelatex '\def\divone{}\input{main.tex}'
