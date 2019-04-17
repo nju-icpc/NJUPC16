@@ -2,8 +2,7 @@
 \renewcommand{\ProblemName}{木板加工}
 \begin{center}
 \huge{\Alph{ProblemNo}. \textbf{\ProblemName}} \\ [0.8cm]
-\large{\textit{公开组时间限制：} 6 \textit{秒}} \\ 
-\large{\textit{提高组时间限制：} 10 \textit{秒}} \\ [1cm]
+\large{\textit{时间限制：} \divsel{10}{6} \textit{秒}} \\ [1cm]
 \end{center}
 
 有$n$块木板，每块有高度$h_i$和宽度$w_i$，高度和宽度都是正整数。木板不能旋转。你可以横向裁剪每块木板，即将其高度$h_i$变为$h_i'$ $(0 < h_i' \leq h_i)$，$h_i'$也必须是正整数。随后，你可以将高度相同的一块或多块木板拼接成一块大木板。
@@ -12,11 +11,9 @@
 
 \subsection*{输入格式}
 
-第一行包含两个整数$n, k$ $(k \leq n)$，表示木板的个数和需要拼成大木板的个数。
+第一行包含两个整数$n, k$ $(k \leq n, 1 \leq n \leq \divsel{5000}{700}, 1 \leq k \leq \divsel{2000}{700})$，表示木板的个数和需要拼成大木板的个数。
 
 接下来$n$行，每行包含两个数字$w_i, h_i$ $(0 \leq w_i, h_i \leq 10^7)$，表示一块木板的宽度和高度。
-
-对于公开组，$1 \leq n \leq 700, 1 \leq k \leq 300$；对于提高组，$1 \leq n \leq 5000, 1 \leq k \leq 2000$。
 
 \subsection*{输出格式}
 

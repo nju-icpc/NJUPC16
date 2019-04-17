@@ -2,8 +2,7 @@
 \renewcommand{\ProblemName}{道路建设}
 \begin{center}
 \huge{\Alph{ProblemNo}. \textbf{\ProblemName}} \\ [0.8cm]
-\large{\textit{公开组时间限制：} 3 \textit{秒}} \\
-\large{\textit{提高组时间限制：} 5 \textit{秒}} \\ [0.8cm]
+\large{\textit{时间限制：} \divsel{5}{3} \textit{秒}} \\ [1cm]
 \end{center}
 
 为促进经济发展，方便居民出行，X村准备新修建一条穿城而过的公路。
@@ -12,11 +11,9 @@
 
 \subsection*{输入格式}
 
-第一行包含一个偶数$n$，表示点的个数。
+第一行包含一个偶数$n$ \divsel{$(2 \leq n \leq 300)$}{$(2 \leq n \leq 80)$}，表示点的个数。
 
 接下来$n$行，每行两个整数$x, y$ $(|x|, |y| \leq 10^6)$，表示一个点的坐标。
-
-对于公开组，$2 \leq n \leq 80$；对于提高组，$2 \leq n \leq 300$。
 
 保证没有坐标相同的两个点。
 
