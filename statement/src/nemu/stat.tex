@@ -1,9 +1,4 @@
-\addtocounter{ProblemNo}{1}
-\renewcommand{\ProblemName}{NEMU}
-\begin{center}
-\huge{\Alph{ProblemNo}. \textbf{\ProblemName}} \\ [0.8cm]
-\large{\textit{时间限制：} 1 \textit{秒}} \\ [1cm]
-\end{center}
+\begin{Problem}{NEMU}{1}
 
 NEMU (NJU EMUlator) 是JYY博士最新研发的s86架构模拟器。s86是一种栈式计算机体系结构，其机器指令只能对栈顶元素进行操作。s86的计算模型包括一个栈和一段有限长的程序。栈中的每个元素均为64位无符号整数类型；程序则由下表中的指令构成，且必须以\texttt{end}指令结束。s86机器运行时，首先会将栈初始化为空，随后将会依次执行程序中的每条指令，直到执行完最后一条\texttt{end}指令后，机器会输出栈顶元素并停机。
 
@@ -53,15 +48,5 @@ $2^{64} = 18 446 744 073 709 551 616$
 
 在C++中，可以使用\verb|std::uint64_t|（在\texttt{cstdint}头文件内）类型实现模$2^{64}$下的算术运算。
 
-\clearpage
-
-\ifodd\value{page}
-\else
-    \vspace*{\fill}
-    \begin{center}
-    \textbf{\Large 本页无正文}
-    \end{center}
-    \vspace*{\fill}
-    \clearpage
-\fi
+\end{Problem}
 
