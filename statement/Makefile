@@ -1,4 +1,4 @@
-main.pdf : main.tex
+main.pdf : $(shell find -type f -name "*.tex")
 	xelatex main.tex
 	xelatex main.tex
 
