@@ -14,8 +14,15 @@
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 \pagestyle{fancy}
-\chead{\large \textbf{南京大学第十六届程序设计竞赛}}
-\lfoot{\Alph{ProblemNo}. \ProblemName}
+
+\ifdefined\divone
+    \newcommand{\divsel}[2]{#1}
+\else
+    \newcommand{\divsel}[2]{#2}
+\fi
+
+\chead{\large \textbf{南京大学第十六届程序设计竞赛（\divsel{提高组}{公开组}）}}
+\lfoot{\Alph{ProblemNo}. \ProblemName （\divsel{提高组}{公开组}）}
 \cfoot{}
 \rfoot{\thepage}
 \setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun}
