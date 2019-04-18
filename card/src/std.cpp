@@ -20,8 +20,8 @@ int main(){
             if (i==o) continue;
             for (int j=1;j<n;j++) for (int k=d[i];k<=b;k++) dp[i][j][k]+=dp[i-1][j-1][k-d[i]];
         }
-        int l=a-d[o],r=min(a,b-d[o]);
-        for (int i=r;i>l;i--)
+        int l=max(0,a-d[o]+1),r=min(a,b-d[o]);
+        for (int i=r;i>=l;i--)
             for (int j=0;j<n;j++)
                 ans+=dp[n][j][i]/C(n,j)/(n-j);
     }
