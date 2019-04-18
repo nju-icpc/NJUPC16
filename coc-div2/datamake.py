@@ -8,6 +8,8 @@ def gen_testpoint(testpoint) :
     src = testpoint["src"]
     is_manual = src.endswith(".txt")
     flags = str(testpoint.get("flags", ""))
+    if flags and flags[0] == '[' : 
+        flags = ' '.join(map(lambda x : "'" + str(x) + "'", eval(flags)))
 
     mk = []
     target = "$(PACKAGE_DIR)/data/" + name + ".in"

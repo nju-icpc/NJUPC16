@@ -1,113 +1,67 @@
 #include<bits/stdc++.h>
-#define maxn 505050
-
+#define pb push_back
 using namespace std;
-typedef unsigned long long ull;
-const ull E=1000000000000ull;
-const ull D=1000000;
-int N;
-int cnt;
-ull mp,bp[25],ap[25],p[35],a[maxn];
-mt19937_64 gen;
-ull myrand(ull E){
-    return (gen())%E+1;
+typedef pair<int,int>pi;
+const int E=100000;
+const int maxn=E*3+10;
+vector <pi> h[maxn];
+mt19937_64 gen(time(NULL));
+int tp,n,m,cc;
+const int M=1000000;
+struct edge{
+    int x,y,z;
+}e[maxn*10];
+void pt(int x){
+    if (x<=E) printf("I[%d]",x);
+    else if (x<=E*2) printf("H[%d]",x-E);
+    else printf("O[%d]",x-E*2);
 }
-bool is_prime(ull x){
-    for (ull i=2;i*i<=x;i++) if (x%i==0) return false;
-    return true;
+void print(edge u){
+    pt(u.x);
+    printf(" -> ");
+    pt(u.y);
+    printf(" (%d)\n",u.z);
 }
-
-int main(int argc, char* argv[]) {
-    int type = atoi(argv[1]);
-    N = atoi(argv[2]);
-    int shuf = atoi(argv[3]);
-    int seed = atoi(argv[4]);
-    gen.seed(seed);
-
-    p[0]=2;
-    for (int i=1;i<=30;i++){
-        p[i]=p[i-1]+1;
-        while (!is_prime(p[i])) p[i]++;
+void add_edge(int x,int y,int z){
+    if (x>E*2) return;
+    if (y<=E) return;
+    if (x==y) return;
+    cc++;
+    e[cc]=(edge){x,y,z};
+}
+int main(int argc, char* argv[]){
+    tp = atoi(argv[1]);
+    mt19937_64 gen(123456+tp);
+    if (tp>=10&&tp<20){
+        // rand
+        add_edge(gen()%E+1,gen()%E+1+E,gen()%M+1);
+        add_edge(gen()%E+1+E,gen()%E+1+2*E,gen()%M+1);
+        m=1e5*(tp-9)-2;
+        for (int i=0;i<m;i++) add_edge(gen()%(E*2)+1,gen()%(E*2)+1+E,gen()%M+1);
     }
-    mp=myrand(1e8)+9e8;
-    while (!is_prime(mp)) mp++;
-    for (int i=0;i<20;i++){
-        bp[i]=myrand(E/5)+E*3/4;
-        while (!is_prime(bp[i])) bp[i]++;
-        //cout << bp[i] << endl;
+    if (tp>=20&&tp<25){
+        // line
+        int p[E+3];
+        for (int i=1;i<=E;i++) p[i]=i;
+        random_shuffle(p+1,p+E+1);
+        int num=1;
+        for (int i=20;i<tp;i++) num=num*10;
+        for (int i=0;i<num;i++) add_edge(gen()%E+1,gen()%E+1+E,gen()%M+1);
+        for (int i=0;i<num;i++) add_edge(gen()%E+1+E,gen()%E+1+E+E,gen()%M+1);
+        for (int i=1;i<E;i++) add_edge(p[i]+E,p[i+1]+E,gen()%M+1);
     }
-    for (int i=0;i<20;i++){
-        ap[i]=myrand(D/5)+D*3/4;
-        while (!is_prime(ap[i])) ap[i]++;
-        //cout << ap[i] << endl;
-    }
-    if (type == 1) {
-        for (int i=0;i<N;i++) a[++cnt]=myrand(E);
-    } else if (type == 2) {
-        for (int i=0;i<N;i++) a[++cnt]=bp[gen()%20];
-    } else if (type == 3) {
-        for (int i=0;i<N/3;i++) a[++cnt]=ap[0]*ap[1];
-        for (int i=0;i<N/3;i++) a[++cnt]=ap[0]*ap[2];
-        for (int i=0;i<N/3;i++) a[++cnt]=ap[1]*ap[2];
-    } else if (type == 4) {
-        for (int i=0;i<20;i++){
-            for (int j=0;j<N/40;j++) a[++cnt]=mp*p[i];
-            for (int j=0;j<N/40;j++) a[++cnt]=bp[i];
+    if (tp>=25&&tp<30){
+        int num=tp-24;
+        for (int i=0;i<num;i++) {
+            int u=gen()%E+1;
+            for (int j=1;j<=E;j++) add_edge(u,j+E,gen()%M+1);
         }
-    } else if (type == 5) {
-        for (int i=0;i<N;i++) a[++cnt]=(ull)128*81*25*7*11*13*17*19;
-    } else if (type == 6) {
-        for (int i=0;i<N/2-1;i++) a[++cnt]=(ull)128*81*25*7*11*13*17*19;
-        for (int i=0;i<N/4;i++) a[++cnt]=bp[0];
-        for (int i=0;i<N/4+1;i++) a[++cnt]=bp[1];
-    } else if (type == 7) {
-        for (int i=0;i<N;i++) a[++cnt]=bp[gen()%2];
-    } else if (type == 8) {
-        for (int i=0;i<N/2-1;i++) a[++cnt]=2;
-        for (int i=0;i<N/2-1;i++) a[++cnt]=3; 
-        a[++cnt]=5;
-    } else if (type == 9) {
-        for (int i=0;i<5;i++) for (int j=i+1;j<5;j++)
-        for (int k=0;k<N/10;k++) a[++cnt]=ap[i]*ap[j];
-    } else if (type == 10) {
-        for (int i=0;i<4;i++) for (int j=i+1;j<4;j++)
-        for (int k=0;k<N/6;k++) a[++cnt]=ap[i]*ap[j];
-        a[++cnt]=ap[6]*ap[7];
-    } else if (type == 11) {
-        int X=11; //X=16;
-        for (int i=0;i<N;i++){
-            ull res=1;
-            for (int j=0;j<8;j++) res*=p[gen()%X];
-            a[++cnt]=res;
+        for (int i=0;i<num;i++) {
+            int u=gen()%E+1+E+E;
+            for (int j=1;j<=E;j++) add_edge(j+E,u,gen()%M+1);
         }
-    } else if (type == 12) {
-        int X=12;
-        for (int i=0;i<N;i++){
-            ull res=1;
-            for (int j=0;j<6;j++) res*=p[gen()%X];
-            a[++cnt]=res;
-        }
-    } else if (type == 13) { 
-        ull res=1; for (int i=0;i<20;i++) if (res*p[i]<=E) res*=p[i];
-        for (int i=0;i<N;i++) a[++cnt]=res;
-    } else if (type == 14) {
-        for (int i=0;i<3;i++) for (int j=i;j<3;j++)
-        for (int k=0;k<N/6;k++) a[++cnt]=ap[i]*ap[j];
-    } else if (type == 15) {
-        for (int i=0;i<N;i++) a[++cnt]=ap[gen()%20]*ap[gen()%20];
-    } else if (type == 16) {
-        for (int i=0;i<N/2;i++) a[++cnt]=myrand(E);
-        for (int i=0;i<N/2-1;i++) a[++cnt]=bp[0];
-    } else if (type == 17) {
-        for (int i=0;i<N/2;i++) a[++cnt]=myrand(E);
-            for (int i=0;i<N/2;i++) a[++cnt]=ap[0]*ap[gen()%20];
-    } else if (type == 18) {
-        for (int i=0;i<N/2;i++) a[++cnt]=ap[gen()%20]*ap[0];
-        for (int i=0;i<N/2-1;i++) a[++cnt]=(ull)128*81*25*7*11*13*17*19;
     }
-    printf("%d\n", cnt);
-    if (shuf) shuffle(a+1, a+cnt+1, mt19937(~seed));
-    for (int i=1;i<cnt;i++) printf("%llu ",a[i]);
-    printf("%llu\n",a[cnt]);
+    cout << cc << endl;
+    for (int i=1;i<=cc;i++) print(e[i]);
     return 0;
 }

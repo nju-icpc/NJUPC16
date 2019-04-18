@@ -1,0 +1,16 @@
+- name: 01-sample
+  src: 01-sample.txt
+
+- name: 10-gen
+  src: gen.py
+- name: 11-gen2
+  src: gen2.py
+- name: 12-rand
+  src: rand.py
+  flags: 2583879
+- name: 13-rand
+  src: rand.py
+  flags: 2583880
+- name: 14-rand
+  src: rand.py
+  flags: 2583881
