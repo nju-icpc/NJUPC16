@@ -38,3 +38,16 @@
 - name: 29-star
   src: gen
   flags: 29
+
+- name: 30-good
+  src: gen
+  flags: 30
+- name: 32-good
+  src: gen
+  flags: 32
+- name: 34-good
+  src: gen
+  flags: 34
+- name: 36-good
+  src: gen
+  flags: 36

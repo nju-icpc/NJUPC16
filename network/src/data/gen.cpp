@@ -6,6 +6,7 @@ const int E=100000;
 const int maxn=E*3+10;
 vector <pi> h[maxn];
 mt19937_64 gen(time(NULL));
+int except_ans=1e7;
 int tp,n,m,cc;
 const int M=1000000;
 struct edge{
@@ -26,10 +27,13 @@ void add_edge(int x,int y,int z){
     if (x>E*2) return;
     if (y<=E) return;
     if (x==y) return;
+    if (x<=E&&y>E||x<=E*2&&y>E*2){
+        if (z>except_ans) return;
+    }
     cc++;
     e[cc]=(edge){x,y,z};
 }
-int main(int argc, char* argv[]){
+int main(int ac, char *argv[]){
     tp = atoi(argv[1]);
     mt19937_64 gen(123456+tp);
     if (tp>=10&&tp<20){
@@ -60,6 +64,11 @@ int main(int argc, char* argv[]){
             int u=gen()%E+1+E+E;
             for (int j=1;j<=E;j++) add_edge(j+E,u,gen()%M+1);
         }
+    }
+    if (tp>=30&&tp<37){
+        except_ans=(tp-29)*100000 + gen() % 100000;
+        m=1000000-(tp-30)*100000;
+        while (cc<m) add_edge(gen()%(E*2)+1,gen()%(E*2)+1+E,gen()%M+1);
     }
     cout << cc << endl;
     for (int i=1;i<=cc;i++) print(e[i]);
