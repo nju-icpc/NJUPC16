@@ -1,6 +1,6 @@
-\begin{Problem}{NEMU}{1}
+\begin{Problem}{NJU Emulator}{1}
 
-NEMU (NJU EMUlator) 是JYY博士最新研发的s86架构模拟器。s86是一种栈式计算机体系结构，其机器指令只能对栈顶元素进行操作。s86的计算模型包括一个栈和一段有限长的程序。栈中的每个元素均为64位无符号整数类型；程序则由下表中的指令构成，且必须以\texttt{end}指令结束。s86机器运行时，首先会将栈初始化为空，随后将会依次执行程序中的每条指令，直到执行完最后一条\texttt{end}指令后，机器会输出栈顶元素并停机。
+NJU Emulator（简称NEMU） 是JYY博士最新研发的s86架构模拟器。s86是一种栈式计算机体系结构，其机器指令只能对栈顶元素进行操作。s86的计算模型包括一个栈和一段有限长的程序。栈中的每个元素均为64位无符号整数类型；程序则由下表中的指令构成，且必须以\texttt{end}指令结束。s86机器运行时，首先会将栈初始化为空，随后将会依次执行程序中的每条指令，直到执行完最后一条\texttt{end}指令后，机器会输出栈顶元素并停机。
 
 \begin{table}[htbp]
 \centering
@@ -24,6 +24,28 @@ NEMU (NJU EMUlator) 是JYY博士最新研发的s86架构模拟器。s86是一种
 需要注意的是，s86中所有算术运算指令（\texttt{add}, \texttt{sub}, \texttt{mul}）的结果都需要对$2^{64}$取模，即当算术运算的结果为$X$时，s86指令的运算结果为$X'$ $(0 \leq X' < 2^{64})$，并且$X - X'$是$2^{64}$的倍数。可以证明，对于任意整数$X$，这样的$X'$都是唯一存在的。
 
 现在，JYY已经完成了NEMU的开发。为了测试NEMU的正确性，JYY想请你编写一段s86程序，使得机器执行结束后，能够输出给定整数$N$。
+
+以样例输出2为例，s86的运行过程如下所示：
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ll}
+\hline
+指令 & 栈  \\ \hline
+\texttt{p1} & \texttt{[ 1 )} \\ 
+\texttt{dup} & \texttt{[ 1 1 )} \\
+\texttt{add 1} & \texttt{[ 1 2 )} \\
+\texttt{add 1} & \texttt{[ 1 3 )} \\
+\texttt{dup} & \texttt{[ 1 3 3 )} \\
+\texttt{add 2} & \texttt{[ 1 3 4 )} \\
+\texttt{add 2} & \texttt{[ 1 3 5 )} \\
+\texttt{mul 1} & \texttt{[ 1 3 15 )} \\
+\texttt{swap} & \texttt{[ 1 15 3 )} \\
+\texttt{pop} & \texttt{[ 1 15 )} \\
+\texttt{end} & （输出15） \\ \hline
+\end{tabular}
+\caption{s86程序运行示例}
+\end{table}
 
 \subsection*{输入格式}
 
