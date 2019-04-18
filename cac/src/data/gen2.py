@@ -19,7 +19,7 @@ for _ in range(ntrys) :
     d = random.randrange(0, 8)
     s = random.choice(['COFFEE', 'CHICKEN'])
     for ch in s :
-        g[x][y] = ch
+        if g[x][y] == '' : g[x][y] = ch
         x += dx[d]
         y += dy[d]
         if not inrange(x, y) :

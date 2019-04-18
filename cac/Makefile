@@ -28,22 +28,10 @@ $(BUILD_DIR)/%.py : $(SOURCE_DIR)/%.py
 	@chmod +x $@
 
 # generate answer file
-%.ans : %.in $(BUILD_DIR)/std
+%.ans : %.in $(BUILD_DIR)/std.py
 	@mkdir -p $(dir $@)
 	@echo + [GEN]\\t\\t$@
-	@$(BUILD_DIR)/std < $< > $@
-
-# generate description file
-%.desc : %.in $(BUILD_DIR)/std
-	@mkdir -p $(dir $@)
-	@echo + [GEN]\\t\\t$@
-	@$(BUILD_DIR)/std < $< 2> $@
-
-# generate png file
-%.png : %.in $(BUILD_DIR)/plot.py
-	@mkdir -p $(dir $@)
-	@echo + [PLOT]\\t$@
-	@$(BUILD_DIR)/plot.py $@ < $<
+	@$(BUILD_DIR)/std.py < $< > $@
 
 clean :
 	rm -rf $(BUILD_DIR)

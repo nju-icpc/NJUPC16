@@ -3,17 +3,15 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     registerValidation(argc, argv);
-    set<int> sx, sy;
-    for (int i = 0; i < 2; i++) {
-        int x1 = inf.readInt(0, 1000000000, "x1"); inf.readSpace();
-        int y1 = inf.readInt(0, 1000000000, "y1"); inf.readSpace();
-        int x2 = inf.readInt(0, 1000000000, "x2"); inf.readSpace();
-        int y2 = inf.readInt(0, 1000000000, "y2"); inf.readEoln();
-        sx.insert(x1); sx.insert(x2);
-        sy.insert(y1); sy.insert(y2);
-        ensure(x1 < x2 and y1 < y2);
+    int h = inf.readInt(1, 100); inf.readSpace();
+    int w = inf.readInt(1, 100); inf.readEoln();
+    for (int i = 0; i < h; i++) {
+        for (int j = 0; j < w; j++) {
+            inf.readToken("[A-Z]");
+            if (j == w - 1) inf.readEoln();
+            else inf.readSpace();
+        }
     }
-    ensure(sx.size() == 4 and sy.size() == 4);
     inf.readEof();
     return 0;
 }

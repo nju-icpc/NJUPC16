@@ -15,7 +15,6 @@ def gen_testpoint(testpoint) :
     target = "$(PACKAGE_DIR)/data/" + name + ".in"
 
     targets.append("$(PACKAGE_DIR)/data/" + name + ".ans")
-    targets.append("$(PACKAGE_DIR)/data/" + name + ".png")
 
     target += " : "
 
