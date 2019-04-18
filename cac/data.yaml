@@ -1,5 +1,7 @@
 - name: 01-sample
   src: 01-sample.txt
+- name: 02-sample
+  src: 02-sample.txt
 
 - name:  11-secret
   src: 11-secret.txt

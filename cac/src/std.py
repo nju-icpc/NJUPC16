@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 h, w = map(int, raw_input().split())
-g = [raw_input().split() for _ in range(h)]
+g = [''.join(raw_input().split()) for _ in range(h)]
 s = g[:] + map(''.join, zip(*g))
 
 for i in range(h) :
