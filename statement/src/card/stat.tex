@@ -1,21 +1,23 @@
 \begin{Problem}{卡牌游戏}{3}
 
-两个人玩一个类似21点的游戏。Bob先完成了抽卡，得到的点数和为a。
+gispzjz和roundgod总是形影不离，这天他们一起玩起了一个类似21点的游戏。
 
-现在轮到Alice抽卡，牌堆里共有n张牌，Alice知道牌堆的每一张牌的点数。抽卡规则如下：
+roundgod先完成了抽卡，得到的点数和为a。
+
+现在轮到gispzjz抽卡，牌堆里共有n张牌，gispzjz知道牌堆里的每一张牌的点数。抽卡规则如下：
 
 \begin{enumerate}
-\item 先将整个牌堆random-shuffle。
-\item Alice可以不断选择抽卡，或者申明终止抽卡，抽卡结束。
-\item 若Alice当前抽到的卡的点数已经超过了b，则抽卡立刻结束，Alice输掉游戏。
-\item 当Alice主动停止抽卡后，若Alice当前抽到的卡的点数和大于Bob的点数和a，则Alice赢得游戏，否则Alice输掉游戏。
+\item 先将整个牌堆random-shuffle(随机打乱顺序)。
+\item gispzjz可以不断选择抽卡，或者申明终止抽卡，抽卡结束。
+\item 若gispzjz当前抽到的卡的点数已经超过了b，则抽卡立刻结束，gispzjz输掉游戏。
+\item 当gispzjz主动停止抽卡后，若gispzjz当前抽到的卡的点数和大于roundgod的点数和a，则gispzjz赢得游戏，否则gispzjz输掉游戏。
 \end{enumerate}
 
-Alice想知道，如果他采取最优策略，获胜的概率是多少。
+gispzjz想知道，如果他采取最优策略，获胜的概率是多少。
 
 \subsection*{输入格式}
 
-第一行包含三个整数$n,a,b$，表示牌堆中牌的个数，Bob的得分a，以及抽牌上限得分b。
+第一行包含三个整数$n,a,b$，表示牌堆中牌的个数，roundgod的得分a，以及抽牌上限得分b。
 
 接下来一行，包含$n$个正整数，第$i$个数$c_i$表示第$i$张牌的点数。
 
