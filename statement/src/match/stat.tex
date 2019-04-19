@@ -1,34 +1,31 @@
-\begin{Problem}{拿糖果}{5}
+\begin{Problem}{Match Maker}{5}
 
-众所周知，gispzjz身为天才少年，他的数学是很厉害的，而gispzjz拥有强悍数学思维的秘诀在于他平时喜欢解决一些需要动脑筋的题目。
+NJU ACM/ICPC集训队的机房内堆放了一些碎木片。这些碎木片都是加工木板时剩下的边角料。由于zyb很心疼他的钱，zyb决定将这些碎木片加工成火柴。为了实现这一目标，zyb首先将这些木片切割成长短不一的西木棍。
 
-这天gispzjz发现机房神奇地出现了$n$堆糖果，教练告诉gispzjz，他可以提前决定好一个\textbf{大于}$1$的正整数$k$，然后重复执行以下操作 : 
+现在问题来了。zyb如何进一步将这些木棍加工成火柴呢？zyb希望加工的过程满足以下条件：
 
-\begin{enumerate}
+\begin{itemize}
+\item 首先，选出至少一半（大于等于$\lceil \frac{n}{2} \rceil$，其中$\lceil x \rceil$表示大于等于$x$的最小整数）木棍，并将其他未选择的木棍丢弃；
+\item zyb需要将这些木棍进一步切割成等长的火柴棍（当然，如果木棍的长度等于火柴棍的长度，则不需要切割这根木棍），切割的过程不允许产生废弃的短木棍，也不允许将木棍拼接起来;
+\item 为防止火柴燃烧时间过短，火柴的长度必须\textbf{大于}1，但不必是整数。
+\end{itemize}
 
-\item 如果存在一堆糖果的数目大于等于$k$，那么gispzjz可以从这一堆中拿走$k$颗糖果，否则就不能拿。
-
-\item 如果gispzjz不再能拿走任何糖果了，就结束这个过程。
-
-\end{enumerate}
-
-gispzjz想知道，是否存在这样的$k$，让他能拿完至少$\lceil \frac{n}{2} \rceil$堆糖果，你能告诉他答案吗？
+例如，如果有三根长度分别为3,5,6的木棍，zyb可以选出其中长度为3和6的木棍，将它们切割成长度为1.5的火柴棍共6根。
 
 \subsection*{输入格式}
 
-第一行包含一个整数$n$ $(1 \leq n \leq 2 \times 10^5)$，表示糖果的堆数。
+第一行包含一个整数$n$ $(1 \leq n \leq 2 \times 10^5)$，表示细木棍的数量。
 
-第二行包含$n$个数字$x_1, x_2, \cdots, x_n$ $(2 \leq x_i \leq 10^{12})$，表示每堆糖果的颗数。
+第二行包含$n$个整数$x_1, x_2, \cdots, x_n$ $(2 \leq x_i \leq 10^{12})$，表示每根细木棍的长度。
 
 \subsection*{输出格式}
 
-如果存在这样的正整数$k$，输出\texttt{YES}；否则输出\texttt{NO}。
+如果存在满足题目中所述条件的火柴制作方案，输出\texttt{YES}；否则输出\texttt{NO}。
 
 \exmpv{001-sample}
 \exmpv{002-sample}
 \exmpv{003-sample}
 \exmpv{004-sample}
-
 
 \end{Problem}
 
