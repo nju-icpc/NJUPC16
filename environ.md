@@ -232,17 +232,28 @@ _sqlite3            filecmp             pypyjit
 ### Compilers / Interpreters
 
 - gcc (Ubuntu 7.4.0-1ubuntu1~14.04~ppa1) 7.4.0
+  usage: `gcc`
 - g++ (Ubuntu 7.4.0-1ubuntu1~14.04~ppa1) 7.4.0
+  usage: `g++`
 - Python 2.7.6 (default, Oct 26 2016, 20:30:19) \[GCC 4.8.4\] on linux2
+  usage: `python`
 - Python 2.7.3 (2.2.1+dfsg-1ubuntu0.3, Sep 30 2015, 15:18:40) \[PyPy 2.2.1 with GCC 4.8.4\] on linux2
+  usage: `pypy`
 - Python 3.5.2 (default, May 23 2018, 00:00:00) \[GCC 4.8.4\] on linux
+  usage: `python3`
+- Python 3.5.3 (7.0.0+dfsg-2~ppa1~ubuntu14.04, Feb 09 2019, 07:17:40) \[PyPy 7.0.0 with GCC 4.8.4\] on linux
+  usage: `pypy3`
 - java version "1.7.0_171"
+  usage: `javac`
   OpenJDK Runtime Environment (IcedTea 2.6.13) (7u171-2.6.13-0ubuntu0.14.04.2)
   OpenJDK 64-Bit Server VM (build 24.171-b02, mixed mode)
+  usage: `java`
 
 ### Editors
 
 - Vim 7.4.52
+- Emacs 24.3.1
+- gedit 3.10.4
 - Sublime 3.2.1
 - Visual Studio Code 1.25.0
 
@@ -251,5 +262,7 @@ _sqlite3            filecmp             pypyjit
 - CLion Version 2019.1.1
 - IntelliJ IDEA Community Version 2019.1.1
 - PyCharm Community Version 2019.1.1
+- Code::Blocks 13.12
+- Eclipse 3.8
 
 ## Windows 7
