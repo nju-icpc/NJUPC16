@@ -21,7 +21,7 @@
     \newcommand{\divsel}[2]{#2}
 \fi
 
-\chead{\large \textbf{南京大学第十六届程序设计大赛（\divsel{提高组}{公开组}）}}
+\chead{\large \textbf{南京大学第16届算法设计大赛（\divsel{提高组}{公开组}）}}
 \lfoot{\Alph{ProblemNo}. \ProblemName （\divsel{提高组}{公开组}）}
 \cfoot{}
 \rfoot{\thepage}
@@ -74,7 +74,7 @@
     \renewcommand{\ProblemName}{#1}
     \setcounter{ExampleNo}{0}
     \begin{center}
-        \huge{\Alph{ProblemNo}. \textbf{\ProblemName}} \\ [0.8cm]
+        \huge{\Alph{ProblemNo}. \ProblemName} \\ [0.8cm]
         \large{\textit{时间限制：} {#2} \textit{秒}} \\ [1cm]
     \end{center}
 }{
@@ -90,28 +90,63 @@
 
 \begin{document}
 
-\divsel{    % Div. 1
-    \problem{coc}
-    \problem{party}
-    \problem{road}
-    \problem{wood}
-    \problem{match}
-    \problem{nemu}
-    \problem{view}
-    \problem{card}
-    \problem{network}
-    \problem{scoreboard}
-}{          % Div. 2
-    \problem{coc}
-    \problem{party}
-    \problem{road}
-    \problem{wood}
-    \problem{match}
-    \problem{nemu}
-    \problem{view}
-    \problem{cac}
-    \problem{network}
-    \problem{scoreboard}
-}
+\thispagestyle{empty}
+\begin{center}
+\Huge \textbf{南京大学第16届算法设计大赛（\divsel{提高组}{公开组}）} \\ [1cm]
+\Huge \textit{试题册} \\ [1cm]
+\Large 比赛时间：2019年4月21日 13:00-17:00
+\end{center}
+\begin{figure}[h]
+\centering
+\includegraphics[width=5cm]{njulogo.pdf}
+\end{figure}
+\begin{center}
+\Large 主办单位：南京大学ACM-ICPC集训队
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\Large \textbf{试题列表} \\ [0.5cm]
+
+\begin{tabular}{cl}
+A & \divsel{Blackjack}{Coffee and Chicken} \\
+B & Coffee or Chicken \\
+C & ICPC \\
+D & Match Maker \\
+E & Mission Probable \\
+F & Neural Network \\
+G & NJU Emulator \\
+H & Road Construction \\
+I & Welcome Party \\
+J & Wood Processing
+\end{tabular}
+
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+\Large \textit{请不要在比赛开始前打开试题册！}
+\end{center}
+\vfill
+
+\clearpage
+\thispagestyle{empty}
+$\;$
+\clearpage
+
+\setcounter{page}{1}
+
+\problem{\divsel{card}{cac}}
+\problem{coc}
+\problem{party}
+\problem{road}
+\problem{wood}
+\problem{match}
+\problem{nemu}
+\problem{view}
+\problem{network}
+\problem{scoreboard}
 
 \end{document}

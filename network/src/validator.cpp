@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
         adj[x].push_back(y);
         string str = inf.readToken("\\([1-9][0-9]{0,6}\\)");
         int w = atoi(str.c_str() + 1);
-        ensure(0 < w and w <= 1000000);
+        ensure(x != y and 0 < w and w <= 1000000);
         inf.readEoln();
     }
     inf.readEof();
