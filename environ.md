@@ -225,9 +225,31 @@ _socket             fcntl               pygtkcompat
 _sqlite3            filecmp             pypyjit             
 ```
 
-### 编程工具
+# Teamhost Environment
 
-IntelliJ IDEA (Version TBD)
-PyCharm (Version TBD)
-CLion (Version TBD)
-Code::Blocks (Version TBD)
+## Ubuntu 14.04
+
+### Compilers / Interpreters
+
+- gcc (Ubuntu 7.4.0-1ubuntu1~14.04~ppa1) 7.4.0
+- g++ (Ubuntu 7.4.0-1ubuntu1~14.04~ppa1) 7.4.0
+- Python 2.7.6 (default, Oct 26 2016, 20:30:19) [GCC 4.8.4] on linux2
+- Python 2.7.3 (2.2.1+dfsg-1ubuntu0.3, Sep 30 2015, 15:18:40) [PyPy 2.2.1 with GCC 4.8.4] on linux2
+- Python 3.5.2 (default, May 23 2018, 00:00:00) [GCC 4.8.4] on linux
+- java version "1.7.0_171"
+  OpenJDK Runtime Environment (IcedTea 2.6.13) (7u171-2.6.13-0ubuntu0.14.04.2)
+  OpenJDK 64-Bit Server VM (build 24.171-b02, mixed mode)
+
+### Editors
+
+- Vim 7.4.52
+- Sublime 3.2.1
+- Visual Studio Code 1.25.0
+
+### IDEs
+
+- CLion Version 2019.1.1
+- IntelliJ IDEA Community Version 2019.1.1
+- PyCharm Community Version 2019.1.1
+
+## Windows 7
