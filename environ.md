@@ -266,3 +266,23 @@ _sqlite3            filecmp             pypyjit
 - Eclipse 3.8
 
 ## Windows 7
+
+### Compilers / Interpreters
+
+- gcc (MinGW.org GCC-6.3.0-1) 6.3.0
+- g++ (MinGW.org GCC-6.3.0-1) 6.3.0
+
+### Editors
+
+- Sublime 3.2.1
+- Visual Studio Code 1.25.0
+
+### IDEs
+
+- Dev-C++ 5.9.2
+- Code::Blocks 17.12
+- Visual Studio Professional 2013
+- Eclipse Oxygen.1a Release (4.7.1a)
+- CLion Version 2019.1.1
+- IntelliJ IDEA Ultimate Version 2019.1.1
+- PyCharm Community Version 2019.1.1
