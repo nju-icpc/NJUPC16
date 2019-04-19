@@ -7,7 +7,7 @@ gispzjz并不想败北，也不想白给，但是这并不重要，因为《炉�
 不过好在，善良的赌场庄家Roundgod给了gispzjz一次实现梦想的机会:只要gispzjz能在Blackjack（也就是俗称的21点）游戏中战胜他，他就会给gispzjz提供购买60包卡牌包的钱（战网点）。和平常的Blackjack有些许区别的地方在于，牌堆里的牌并不是标准的52张扑克牌，牌面的点数不是平常的A-K，点数的上限也不一定是标准的21点。但是善良的Roundgod会告诉gispzjz牌堆由哪些牌组成。由于Roundgod实在是太过于善良了，他会给gispzjz提供这样一个优势: Roundgod 先抽牌并且告诉gispzjz自己的点数$a$，然后再让gispzjz进行抽牌，gispzjz的抽牌规则如下:
 
 \begin{enumerate}
-\item 先将整个牌堆random-shuffle(随机打乱顺序)。
+\item 先将整个牌堆随机打乱顺序。
 \item gispzjz可以不断选择抽牌，或者申明终止抽牌，抽牌结束。
 \item 若gispzjz当前抽到的牌的点数已经超过了b，则抽牌立刻结束，gispzjz输掉游戏。
 \item 当gispzjz主动停止抽牌后，若gispzjz当前抽到的牌的点数和大于Roundgod的点数和a，则gispzjz赢得游戏，否则gispzjz输掉游戏。
@@ -17,7 +17,7 @@ gispzjz想知道，如果他采取最优策略，他有多大的概率获得《�
 
 \subsection*{输入格式}
 
-第一行包含三个整数$n,a,b$，表示牌堆中牌的个数，roundgod的得分a，以及抽牌上限得分b。
+第一行包含三个整数$n,a,b$，表示牌堆中牌的个数，Roundgod的得分a，以及抽牌上限得分b。
 
 接下来一行，包含$n$个正整数，第$i$个数$c_i$表示第$i$张牌的点数。
 
