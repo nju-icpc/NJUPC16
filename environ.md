@@ -267,10 +267,10 @@ _sqlite3            filecmp             pypyjit
 
 ## Windows 7
 
-### Compilers / Interpreters
+### Python Interpreters
 
-- gcc (MinGW.org GCC-6.3.0-1) 6.3.0
-- g++ (MinGW.org GCC-6.3.0-1) 6.3.0
+- Python 2.7.16 (v2.7.16:413a49145e, Mar  4 2019, 01:37:19) \[MSC v.1500 64 bit (AMD64)\] on win32
+- Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) \[MSC v.1916 32 bit (Intel)\] on win32
 
 ### Editors
 
