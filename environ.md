@@ -233,9 +233,9 @@ _sqlite3            filecmp             pypyjit
 
 - gcc (Ubuntu 7.4.0-1ubuntu1~14.04~ppa1) 7.4.0
 - g++ (Ubuntu 7.4.0-1ubuntu1~14.04~ppa1) 7.4.0
-- Python 2.7.6 (default, Oct 26 2016, 20:30:19) [GCC 4.8.4] on linux2
-- Python 2.7.3 (2.2.1+dfsg-1ubuntu0.3, Sep 30 2015, 15:18:40) [PyPy 2.2.1 with GCC 4.8.4] on linux2
-- Python 3.5.2 (default, May 23 2018, 00:00:00) [GCC 4.8.4] on linux
+- Python 2.7.6 (default, Oct 26 2016, 20:30:19) \[GCC 4.8.4\] on linux2
+- Python 2.7.3 (2.2.1+dfsg-1ubuntu0.3, Sep 30 2015, 15:18:40) \[PyPy 2.2.1 with GCC 4.8.4]] on linux2
+- Python 3.5.2 (default, May 23 2018, 00:00:00) \[GCC 4.8.4\] on linux
 - java version "1.7.0_171"
   OpenJDK Runtime Environment (IcedTea 2.6.13) (7u171-2.6.13-0ubuntu0.14.04.2)
   OpenJDK 64-Bit Server VM (build 24.171-b02, mixed mode)
