@@ -231,9 +231,9 @@ _sqlite3            filecmp             pypyjit
 
 ### Compilers / Interpreters
 
-- gcc (Ubuntu 7.4.0-1ubuntu1~14.04~ppa1) 7.4.0
+- gcc (Ubuntu 7.4.0-1ubuntu1\~14.04\~ppa1) 7.4.0
   usage: `gcc`
-- g++ (Ubuntu 7.4.0-1ubuntu1~14.04~ppa1) 7.4.0
+- g++ (Ubuntu 7.4.0-1ubuntu1\~14.04\~ppa1) 7.4.0
   usage: `g++`
 - Python 2.7.6 (default, Oct 26 2016, 20:30:19) \[GCC 4.8.4\] on linux2
   usage: `python`
