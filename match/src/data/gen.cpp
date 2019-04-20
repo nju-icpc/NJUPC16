@@ -104,6 +104,9 @@ int main(int argc, char* argv[]) {
     } else if (type == 18) {
         for (int i=0;i<N/2;i++) a[++cnt]=ap[gen()%20]*ap[0];
         for (int i=0;i<N/2-1;i++) a[++cnt]=(ull)128*81*25*7*11*13*17*19;
+    } else if (type == 19) {
+        for (int i=0;i<N/2;i++) a[++cnt]=ap[gen()%20];
+        for (int i=0;i<N/2-1;i++) a[++cnt]=(ull)128*81*25*7*11*13*17*19;
     }
     printf("%d\n", cnt);
     if (shuf) shuffle(a+1, a+cnt+1, mt19937(~seed));

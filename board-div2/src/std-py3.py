@@ -28,7 +28,7 @@ for i, t in enumerate(list(map(read, jyy_str.split()))) :
 
 jyy.sort(key = lambda k : k[1])
 
-for i in range(1, len(jyy)) :
+for i in reversed(range(1, len(jyy))) :
     jyy[i][1] -= jyy[i-1][1]
 
 bf = 0

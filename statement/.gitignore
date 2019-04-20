@@ -1,4 +1,9 @@
 njupc*.pdf
+analysis.pdf
 *.aux
 *.log
 *.gz
+*.out
+*.nav
+*.snm
+*.toc

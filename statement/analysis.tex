@@ -1,0 +1,57 @@
+\documentclass[t]{beamer}
+\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+\usepackage{epstopdf}
+\usepackage{enumitem}
+\usepackage{subfigure}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{ulem}
+\usepackage[english]{babel}
+
+\setmainfont[BoldFont=Arial Bold]{Arial}
+\setmonofont{Courier New}
+
+\setlist{nosep}
+\renewcommand{\algorithmicrequire}{\textbf{INPUT:}}
+\renewcommand{\algorithmicensure}{\textbf{OUTPUT:}}  
+\newcommand{\ProblemName}{}
+\newcommand{\ProblemID}{}
+
+\newenvironment{Solution}[1]{
+    \renewcommand{\ProblemName}{#1}
+    \section{\ProblemName}
+}{ }
+
+\newcommand{\tutorial}[1] {
+    \renewcommand{\ProblemID}{#1}
+    \input{src/\ProblemID/tutorial.tex}
+}
+
+\title{The 16th Nanjing Univesity Programming Contest}
+\subtitle{Contest Analysis}
+\institute{Nanjing University ACM-ICPC Training Team}
+\date{April 21, 2019}
+
+\begin{document}
+
+  \begin{frame}
+    \titlepage
+  \end{frame}
+  
+  \tutorial{cac}
+  \tutorial{coc}
+  \tutorial{view}
+  \tutorial{scoreboard}
+  \tutorial{party}
+  \tutorial{network}
+  \tutorial{wood}
+  \tutorial{match}
+  \tutorial{nemu}
+  \tutorial{road} 
+  \tutorial{card} 
+
+\end{document}

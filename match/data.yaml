@@ -170,13 +170,13 @@
   flags: 18 200000 1 3231478434
 - name: 184-hackall
   src: gen
-  flags: 18 200000 1 3231478435
+  flags: 19 200000 1 3231478435
 - name: 185-hackall
   src: gen
-  flags: 18 200000 1 3231478436
+  flags: 19 200000 1 3231478436
 - name: 186-hackall
   src: gen
-  flags: 18 200000 1 3231478437
+  flags: 19 200000 1 3231478437
 
 - name: 191-hand
   src: 192-hand.txt

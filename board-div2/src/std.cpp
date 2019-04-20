@@ -18,7 +18,7 @@ int main(){
         f[i] = readint();
     }
     for (int i=0;i<n;i++){
-        if (f[i]==-1) t[i]=INF;
+        if (f[i]==-1) t[i]=INF+1;
         else {
             int mx=0;
             for (int j=0;j<n;j++) if (f[j]<f[i]) mx=max(mx,f[j]);
