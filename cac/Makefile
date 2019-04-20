@@ -28,10 +28,10 @@ $(BUILD_DIR)/%.py : $(SOURCE_DIR)/%.py
 	@chmod +x $@
 
 # generate answer file
-%.ans : %.in $(BUILD_DIR)/std.py
+%.ans : %.in $(BUILD_DIR)/std
 	@mkdir -p $(dir $@)
 	@echo + [GEN]\\t\\t$@
-	@$(BUILD_DIR)/std.py < $< > $@
+	@$(BUILD_DIR)/std < $< > $@
 
 clean :
 	rm -rf $(BUILD_DIR)
