@@ -4,8 +4,31 @@
 
 \small Problem Author: Liu Hongyang, Problem Developer: Liu Hongyang \par \vspace{0.3cm}
 
-\small Submissions: Div.1 (?+?)/(?+?), Div.2 (?+?)/(?+?)  \par \vspace{0.5cm}
+\small Submissions: Div.2 (?+?)/(?+?), Div.1 (?+?)/(?+?)  \par \vspace{0.5cm}
 
+Given $n$ $(n \leq 200000)$ integers up to $10^{12}$, decide whether we can select at least half of these numbers, such that they have common divisor which is greater than 1.
+
+\par
+
+Note that such factor appears in at least half of the numbers, so we may employ randomized algorithm. We may randomly pick a number, factorize it in sqrt time, and for each of its factor, check if it is a factor of at least half of the numbers.
+
+\par
+
+However, the number of factors of an integer up to $10^{12}$ can be large, and it is infeasible to check all of them.
+
+\end{frame}
+
+\begin{frame}{\ProblemName}
+
+Actually, we can only check prime factors, since if a non-prime factor $f$ is valid, then any prime factor of $f$ is also valid. There are at most $\log x$ different prime factors for integer $x$.
+
+\par
+
+The algorithm can find a valid factor with probability of at least $1/2$ in one repetition. If we repeating this process for multiple times, the algorithm will give correct answer with high probability.
+
+\par
+
+The total time complexity is $O(T(\sqrt{x} + n \log x))$, where $T$ is the number of repetitions.
 
 \end{frame}
 

@@ -6,6 +6,37 @@
 
 \small Submissions: Div.1 (?+?)/(?+?), Div.2 (?+?)/(?+?)  \par \vspace{0.5cm}
 
+Given $n$ points ($n$ is even), find a line such that there are equal number of points in each side, and the minimum distance of the points to the line is maximized.
+
+\pause
+
+For geometrical optimization problem, we may always try some standard geometric reasoning:
+
+\end{frame}
+
+\begin{frame}{Road Construction}
+
+1. Arbitrarily draw a line, and find the point closest to the line;
+
+\pause
+
+2. Translate the line away from that point (which will increase the answer), until another point is closer to the line. Now, the line passes through the midpoint of the two points;
+
+\pause
+
+3. Rotate the line around the midpoint (either clockwise or counter clockwise, depending on which one will increase the answer), until it is perpendicular to the two points, or it is closer to a third point.
+
+\pause 
+
+Conclusion: the optimal line is either parallel with a line passing through two points, or perpendicular to such line.
+
+\end{frame}
+
+\begin{frame}{Road Construction}
+
+Hence, there are at most $O(n^2)$ possible directions for the optimal line. For each direction $\vec{d}$, we may compute $d_i = \vec{x_i} \times \vec{d}$ for each point $x_i$, and the optimal line can be written as $\vec{x} \times \vec{d} - M$ where $M$ is the median of $\{d_i\}$.
+
+The overall time complexity is $O(n^3 \log n)$ if we find the median via sorting, or $O(n^3)$ if we use linear time median algorithm, e.g. \texttt{std::nth\_element} in C++.
 
 \end{frame}
 

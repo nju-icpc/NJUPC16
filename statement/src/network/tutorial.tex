@@ -4,8 +4,28 @@
 
 \small Problem Author: Jiang Yanyan, Problem Developer: Liu Hongyang \par \vspace{0.3cm}
 
-\small Submissions: Div.1 (?+?)/(?+?), Div.2 (?+?)/(?+?)  \par \vspace{0.5cm}
+\small Submissions: Div.2 (?+?)/(?+?), Div.1 (?+?)/(?+?)  \par \vspace{0.5cm}
 
+This problem is not so hard in spite of parsing the input, and actually it can be attacked in various ways. 
+
+\pause
+
+The main idea of the first approach is to binary search on the answer. If, deleting edges of weight no more than $k$ can disconnect the graph, any $k' > k$ can also. It remains to check whether there is a path from input node to output node, which can be solved by DFS/BFS. Such solutions generally run in $O(E \log w)$ time.
+
+\end{frame}
+
+\begin{frame}{\ProblemName}
+
+If we consider the dual problem, we may obtain another category of solutions:
+the dual problem of the original one is to find the maximum possible value of the minimum weight of edges in a path from input node to output node. But how to find this value?
+
+\pause
+
+One approach is to sort all edges in descending order, add the edges one by one, and maintain the set of reachable nodes from any input node, until some output node is reachable. The answer is exactly the key of last added edge.
+
+\pause
+
+Another approach is quite similar to Dijkstra's shortest path and Prim's minimum spanning tree algorithm. We may maintain a prioirty queue, the element of which is a node which is reachable in one step, keyed by the weight of edge to that node. We may repeatedly extract the node with maximum key until we reach an output node. The answer is the maximum key of extracted elements.
 
 \end{frame}
 

@@ -1,4 +1,4 @@
-\begin{Solution}{ICPC}
+\begin{Solution}{Welcome Party}
 
 \begin{frame}{\ProblemName}
 
@@ -6,6 +6,27 @@
 
 \small Submissions: Div.1 (?+?)/(?+?), Div.2 (?+?)/(?+?)  \par \vspace{0.5cm}
 
+Given $n$ pairs of numbers $\{(x_i, y_i)\}_{i=1}^n$, partition $[n] = \{1, 2, \cdots, n\}$ into two disjoint nonempty sets $S, T$, find
+
+$$ \min_{S, T} | \max_{i \in S} x_i - \max_{j \in T} y_j | . $$
+
+For Div.2 $n \leq 10000$, for Div.1, $n \leq 3 \times 10^5$.
+
+\pause
+
+We call the $i \in S$ such that $x_i$ is the maximum element is $x$-critical; likewise we may define $y$-critical.
+
+\pause
+
+A simple solution is try all possible $x$-critical $y$-critical combinations, and check if each combination is valid. This runs in $O(n^3)$, which exceeds time limit by a wide margin.
+
+\end{frame}
+
+\begin{frame}{\ProblemName}
+
+We may enumerate $x$-critical point, say $i$. Another point $j$ is eligible to be $y$-critical if and only if, for all $k \neq i, j$, either $x_k \leq x_i$ or $y_k \leq y_i$, or equivalently, $y_j \geq \min_{k : x_k > x_i, i \neq j}{y_k}$. All these possible $j$s can be found in linear time, among which we simply take the optimal one.
+
+For Div.1, we may actually find the optimal one in logarithmic time rather than linear time, but this requires a bit data structure work.
 
 \end{frame}
 

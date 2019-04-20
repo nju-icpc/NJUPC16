@@ -4,8 +4,23 @@
 
 \small Problem Author: Liu Hongyang, Problem Developer: Liu Hongyang \par \vspace{0.3cm}
 
-\small Submissions: Div.1 (?+?)/(?+?), Div.2 (?+?)/(?+?)  \par \vspace{0.5cm}
+\small Submissions: Div.2 (?+?)/(?+?), Div.1 (?+?)/(?+?)  \par \vspace{0.5cm}
 
+Given a scoreboard of an ICPC contest, for the first team, find the highest rank and the maximum number of first solved problems, if the team rearranges its order of problems to be solved,
+
+\par
+
+This problem contains two essentially independent subproblems. For the highest rank, the team may solve the problems in a greedy approach: always solve the unsolved problem which costs shortest time.
+
+\par
+
+To maximize the number of first solved problems, the intended Div.2 solution is just try all possible permutations. However, this does not work in Div.1, since $m$ can up to 13. 
+
+\end{frame}
+
+\begin{frame}{\ProblemName}
+
+For Div.1, this can be solved by dynamic programming. Let $f(S)$ denote the maximum number of first solved problems, when the set of solved problems is $S$. Since the time elapsed when the problems in $S$ are solved is not related of specifc order of solving these problems, the state transition can be easily made in topological order defined by set inclusion. The total time complexity is $O(m2^m)$.
 
 \end{frame}
 

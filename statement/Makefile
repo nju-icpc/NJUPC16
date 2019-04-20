@@ -13,8 +13,9 @@ njupc-div2.pdf : main.tex $(DEPS)
 analysis.pdf : analysis.tex $(DEPS) 
 	xelatex analysis.tex
 	xelatex analysis.tex
+	xelatex analysis.tex
 
-.PHONY : ALL div1 div2 clean
+.PHONY : ALL div1 div2 clean analysis
 
 .DEFAULT_GOAL = ALL
 
@@ -24,6 +25,9 @@ div1 : njupc-div1.pdf
 	xdg-open $<
 
 div2 : njupc-div2.pdf
+	xdg-open $<
+
+analysis : analysis.pdf
 	xdg-open $<
 
 clean:
