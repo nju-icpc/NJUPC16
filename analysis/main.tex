@@ -1,0 +1,136 @@
+\documentclass[a4paper,10.5pt,twoside]{article}
+\usepackage[left=2.0cm, right=2.0cm, top=2.0cm, bottom=2.0cm]{geometry}
+\usepackage{indentfirst}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{mathspec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{verbatim}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\bfseries\Large\filcenter}{\thesection}{1em}{}
+
+\setmainfont[BoldFont=Arial Bold]{Arial}
+%\setmainfont{Times New Roman}
+\setmonofont{Courier New}
+\setmathsfont(Latin){Times New Roman}
+
+\setlist{nosep}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  
+\renewcommand{\algorithmicensure}{\textbf{Output:}}  
+
+\title{\LARGE{The 16th Nanjing University Programming Contest} \\ Contest Analysis}
+
+\begin{document}
+
+\maketitle
+
+\section*{Statistics}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|rrrrrrrrrr|}
+\hline
+Problem & A & B & C & D & E & F & G & H & I & J \\ \hline
+Solved & 1 & 20 & 12 & 3 & 25 & 7 & 0 & 0 & 5 & 0 \\
+Submissions & 4 & 100 & 77 & 32 & 31 & 27 & 0 & 0 & 64 & 0 \\ \hline
+\end{tabular}
+
+\begin{tabular}{|l|rrrrrrrrrr|}
+\hline
+Problem & A & B & C & D & E & F & G & H & I & J \\ \hline
+Solved & 66 & 64 & 3 & 1 & 72 & 4 & 20 & 0 & 0 & 0 \\
+Submissions & 252 & 250 & 34 & 93 & 174 & 18 & 98 & 1 & 34 & 17 \\ \hline
+\end{tabular}
+
+\end{table}
+
+\section*{Problem 1A: Blackjack}
+
+\section*{Problem 2A: Coffee and Chicken}
+The solution to this problem is quite simple: try all possible starting points and directions, and check if the word \texttt{COFFEE} or \texttt{CHICKEN} can be formed.
+
+\section*{Problem B: Coffee or Chicken}
+For Div.2 participants, note that the length of the $i$-th coffee chicken is roughly proportional to the $i$-th Fibonacci number $F_i$, or more precisely, less than $7F_i$. While the Fibonacci number is asymptotic to $O(1.619^n)$, it is possible to construct the entire string within time and memory limits.
+
+For Div.1 participants, it is impossible to explicitly construct the entire string. However, we may generate the answer character-wise. Define $f(n, k)$ to be the $k$-th character in the $n$-th coffee chicken string, we may easily write the following recurrence (base case omitted):
+
+$$
+f(n, k) = \begin{cases}
+	f(n-1, k-|S(n-2)|), & k > |S(n-2)| \\
+	f(n-2, k), & \text{otherwise}
+\end{cases}
+$$
+
+By preprocessing the lengths of the coffee chicken strings, the above function can be computed in $O(n)$ time.
+
+Also note that $S(n-2)$ is a prefix of $S(n)$, so, for large $n$, we may generate answer in $S(n-2t)$ for some properly chosen integer $t$. This can be used to avoid big integer arithmetics (since the length grows exponentially). It is also fine to use languages with big integer facilities.
+
+\section*{Problem C: ICPC}
+
+This problem consists of two independent parts. The first is to find the best possible rank, which can be solved greedily: do the problems in ascending order of time consumption.
+
+The second part is to maximize the number of first solved problems. For Div.2 participants, trying all permutations in factorial time is sufficient. For Div.1, we may use dynamic programming: let $f(S)$ denote the maximum number of first solved problems while the set of solved problems is $S$. The state transition can be made by augmenting one element to $S$, in overall $O(m 2^m)$ time.
+
+\section*{Problem D: Match Maker}
+
+The first observations is that, if the answer is \texttt{YES}, then the length of the matchstick can integer, which involves some number theoretic argument. Now the problem is transformed to, given $N$ integer, determine if we may choose at least half of the numbers such that their greatest common divisor is greater than 1.
+
+Factorizing each number obviously can not fit in time limit. The key point is to introduce randomization. We may randomly pick a number, then, with probability of at least $1/2$, the gcd is a factor of the number if the answer is true. Hence  for each prime factor of this number we may check if it divides at least half of all the numbers (checking all factors still can't fit in time because there can be too many factors for integers up to $10^{12}$). This is a single-sided error Monte Carlo with error probability $1/2$, which could be amplified through repetition. The total running time is $O(T(\sqrt{x} + n \log x))$ where $T$ is the number of repetitions.
+
+\section*{Problem E: Mission Probable}
+
+This was the easiest problem in the problem set, but still required some implementation work.
+
+To generate top view, simply check if the cell is empty. The height of each column in the front view is the maximum number of boxes in a cell of that column. Side view can be generated similarly.
+
+\section*{Problem F: Neural Network}
+
+The problem was not very hard in spite of parsing the input, and actually it could be solved in different ways.
+
+The first approach is to binary search on the answer. The remaining part is to check if there is a path from some input node to some output node, after some edges deleted. This is a simple DFS/BFS work.
+
+Another type of solutions is, noticing that the answer is exactly the the maximum of the minimum weight in a path, among all possible paths from input node to output node. This can be found by either adding the edges in descending weight order and maintaining the set of nodes reachable from input nodes, or, applying an algorithm similar to Prim's minimum spanning tree or Dijkstra's shortest path: maintaining a priority queue, which contains nodes reachable from all reached nodes in one step, keyed by the weight of the edge. Then we repeatedly extract the maximum element and mark it as reached and push new nodes into priority queue, until some output node is reached.
+
+\section*{Problem G: NJU Emulator}
+
+This was probably the most interesting problem. For Div.2, the main idea is to construct the target number bit-wise: first, push constant 1 to the stack; then we may use \texttt{add 0} to left shift the current number, and \texttt{add 1} to set the current bit. The total number of instructions required is around 130, fairly easy to fit in the limit.
+
+For Div.1, the program can contain at most 60 instructions, which is much more stringent. We may apply a technique called `Method of Four Russians' to reduce the number of instructions. M4R decomposes a problem into several small subproblems,  for each possible instance of subproblem, preprocesses its answer, and finally combines these answers. In this problem, we may construct the number in some base $K$ other than 2. We may first construct the numbers $1, 2, \cdots, K$ on the stack, then the target number can be constructed in multiply-K-add-D fashion. The total number of instructions required is $O(N / \log K + K)$ for an $B$-bit integer, which is $O(B / \log B)$ if we take $K = \Theta(B / \log B)$. Compared with the original $O(B)$ bit-wise construction, this is an improvement of an order of magnitude when $B$ is large! In fact, any base between 7 and 12 can pass our test data.
+
+In both divisions, there was one corner case $N = 0$. Since the judges are all nice and friendly people, this was included in the sample data.
+
+\section*{Problem H: Road Construction}
+
+\section*{Problem I: Welcome Party}
+
+We restate the problem in mathematical language: given $n$ pairs of integers $\{(x_i, y_i)\}_{i=1}^n$, find
+
+$$ \min_{S, T} | \max_{i \in S} x_i - \max_{j \in T} y_j | $$
+
+where $S, T$ are nonempty sets and $(S, T)$ is a partition of $[n] = \{1, 2, \cdots, n\}$.
+
+We say $\hat{i} = \arg\max_{i \in S} x_i$ is $x$-critical, and $y$-critical is defined likewise. If $i$ is $x$-critical, then $j (\neq i)$ can be $y$-critical if and only if for all $1 \leq k \leq n$, $x_k \leq x_i$ or $y_k \leq y_j$. A na\"ive solution enumerates all $x$-critical $y$-critical index pair and check if it is valid, in overall cubic time. However, we may only enumerate $x$-critical index $i$, and $j$ can be $y$-critical iff $y_j \geq \max\{y_k : k \neq i, j, x_k > x_i\}$. This can be implemented in $O(n^2)$. With some data structure work this can be improved to $O(n \log n)$.
+
+\section*{Problem J: Wood Processing}
+
+This problem can be rephrased as follows: given $n$ pairs $\{(w_i, h_i)\}_{i=1}^n$, partition $\{1, 2, \cdots, n\}$ into $k$ sets $S_1, S_2, \cdots, S_k$, such that 
+
+$$ \sum_{i=1}^k \left(\min_{j \in S_i} h_j \cdot \sum_{j \in S_i} w_j \right) $$
+
+is maximized.
+
+We can relabel the pairs such that $\{h_i\}$ is non-decreasing, and relabel the sets $\{S_j\}$ such that $\min\{w_i : i \in S_j\}$ is non-decreasing. Also we define $g(i)$ as $i \in S_{g(i)}$. We may observe that if $i \leq j$ then $g(i) \leq g(j)$ (otherwise we can move $j$ to $S_{g(i)}$ to get a better answer). Now, it's natural to devise a dynamic programming: let $f(i,j)$ denote the optimal answer if we partition the first $i$ woods into $j$ sets. The state transition can be made as follows:
+
+$$ f(i,j) = \max_{j-1 \leq k \leq i} \left( f(k-1, j-1) + h_{k} \sum_{l = k}^i w_l \right). $$
+
+This is a 2D/1D dynamic program running in $O(n^2 k)$, sufficient to pass Div.2 test data. 
+
+For Div.1 participants, some further observations is needed. The transition cost $C(k, i) = h_{k} \sum_{l = k}^i w_l$ has the Monge property: $C(i, j) + C(i', j') \leq C(i, j') + C(i', j)$ for $i \leq i' \leq j \leq j'$, hence we may apply any standard dynamic programming optimization technique, e.g., divide and conquer optimization based on monotonicity of decision points, maintaining the convex hull, or even using lambda optimization to transform the problem into a regularized unconstrained version. The solution can finally be optimized to $O(n \log n)$.
+
+\end{document}
