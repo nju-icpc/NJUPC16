@@ -4,7 +4,6 @@
 
 \small Problem Author: Jiang Yanyan, Problem Developer: Chen Shaoyuan \par 
 
-\small Submissions: Div.2 (?+?)/(?+?), Div.1 (?+?)/(?+?) 
 
 $$S(1) = \texttt{"COFFEE"}, S(2) = \texttt{"CHICKEN"}, S(n) = S(n-1) + S(n-2)$$
 
@@ -33,7 +32,7 @@ By precomputing $|S(n)|$ for each possible $n$, this can be solved in $O(10n)$ t
 
 \pause
 
-To avoid big integer arithmetic, one should discover that $S(n-2)$ is a prefix of $S(n)$. So we may subtract an even number from $n$ without changing the answer, as long as the length of the resulting string is large enough.
+To avoid big integer arithmetics, one should discover that $S(n-2)$ is a prefix of $S(n)$. So we may subtract an even number from $n$ without changing the answer, as long as the length of the resulting string is large enough.
 
 \end{frame}
 

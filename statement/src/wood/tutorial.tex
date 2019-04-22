@@ -4,7 +4,12 @@
 
 \small Problem Author: Chen Shaoayuan, Problem Developer: Chen Shaoyuan \par \vspace{0.3cm}
 
-\small Submissions: Div.1 (?+?)/(?+?), Div.2 (?+?)/(?+?)  \par \vspace{0.5cm}
+
+The first thing to discover is, we can first sort the woods by their heights, and the woods grouped together must be consecutive in the sorted list. Then a simple dynamic programming algorithm may apply: let $f(i, j)$ denote the maximum total area of woods, if we make $j$ big woods from the first $i$ small woods. Direct state transition can be made in $O(n^2k)$ time, which enough for Div.2.
+
+\pause
+
+Div.1 participants may apply any standard dynamic optimization technique to accelerate the state transition, e.g. monotonicity of decision points, maintaining the convex hull, or lambda optimization (discrete version of Lagrange multipliers, which is commonly known as WQS binary search in OI/ACM).
 
 \end{frame}
 
