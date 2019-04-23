@@ -31,7 +31,8 @@
 \maketitle
 
 \section*{Statistics}
-
+\subsection*{Division 1}
+In Division 1, a total of 335 submissions were made. All submissions were in C++. Submissions to each problem is listed in the following table.
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|rrrrrrrrrr|}
@@ -40,7 +41,13 @@ Problem & A & B & C & D & E & F & G & H & I & J \\ \hline
 Solved & 1 & 20 & 12 & 3 & 25 & 7 & 0 & 0 & 5 & 0 \\
 Submissions & 4 & 100 & 77 & 32 & 31 & 27 & 0 & 0 & 64 & 0 \\ \hline
 \end{tabular}
+\end{table}
 
+\subsection*{Division 2}
+
+In Division 2, there were 971 submissions: 20 in C, 858 in C++, 35 in Java, 2 in Python2 and 56 in Python3. Submissions to each problem is listed in the following table.
+\begin{table}[h]
+\centering
 \begin{tabular}{|l|rrrrrrrrrr|}
 \hline
 Problem & A & B & C & D & E & F & G & H & I & J \\ \hline
@@ -107,8 +114,14 @@ In both divisions, there was one corner case $N = 0$. Since the judges are all n
 
 \section*{Problem H: Road Construction}
 
-\section*{Problem I: Welcome Party}
+This is a quite standard geometry problem. The main idea of the solution is, the optimal road must be parallel or perpendicular to some line formed by connecting two given points (otherwise we may translate or rotate the road to improve our answer). There are $O(n^2)$ possible directions.
 
+We compute the optimal answer for each direction. Let $\hat{\vec{d}}$ be the unit direction vector, we may compute $b_i = \vec{x_i} \times \hat{\vec{d}}$ for each point $\vec{x}$. Then, we may sort these numbers in $O(n \log n)$ time, and the answer is exactly half of the difference between the two middle numbers. Also the answer can be found by linear time median algorithm.
+
+There is also a solution based on binary search on the answer, but we think this is much harder to implement.
+
+\section*{Problem I: Welcome Party}
+ 
 We restate the problem in mathematical language: given $n$ pairs of integers $\{(x_i, y_i)\}_{i=1}^n$, find
 
 $$ \min_{S, T} | \max_{i \in S} x_i - \max_{j \in T} y_j | $$
@@ -127,7 +140,7 @@ is maximized.
 
 We can relabel the pairs such that $\{h_i\}$ is non-decreasing, and relabel the sets $\{S_j\}$ such that $\min\{w_i : i \in S_j\}$ is non-decreasing. Also we define $g(i)$ as $i \in S_{g(i)}$. We may observe that if $i \leq j$ then $g(i) \leq g(j)$ (otherwise we can move $j$ to $S_{g(i)}$ to get a better answer). Now, it's natural to devise a dynamic programming: let $f(i,j)$ denote the optimal answer if we partition the first $i$ woods into $j$ sets. The state transition can be made as follows:
 
-$$ f(i,j) = \max_{j-1 \leq k \leq i} \left( f(k-1, j-1) + h_{k} \sum_{l = k}^i w_l \right). $$
+$$ f(i,j) = \max_{j \leq k \leq i} \left( f(k-1, j-1) + h_{k} \sum_{l = k}^i w_l \right). $$
 
 This is a 2D/1D dynamic program running in $O(n^2 k)$, sufficient to pass Div.2 test data. 
 
