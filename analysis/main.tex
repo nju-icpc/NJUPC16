@@ -144,6 +144,28 @@ $$ f(i,j) = \max_{j \leq k \leq i} \left( f(k-1, j-1) + h_{k} \sum_{l = k}^i w_l
 
 This is a 2D/1D dynamic program running in $O(n^2 k)$, sufficient to pass Div.2 test data. 
 
-For Div.1 participants, some further observations is needed. The transition cost $C(k, i) = h_{k} \sum_{l = k}^i w_l$ has the Monge property: $C(i, j) + C(i', j') \leq C(i, j') + C(i', j)$ for $i \leq i' \leq j \leq j'$, hence we may apply any standard dynamic programming optimization technique, e.g., divide and conquer optimization based on monotonicity of decision points, maintaining the convex hull, or even using lambda optimization to transform the problem into a regularized unconstrained version. The solution can finally be optimized to $O(n \log n)$.
+For Div.1 participants, some further observations is needed. The transition cost $C(k, i) = h_{k} \sum_{l = k}^i w_l$ has the Monge property: $C(i, j) + C(i', j') \leq C(i, j') + C(i', j)$ for $i \leq i' \leq j \leq j'$, hence we may apply any standard dynamic programming optimization technique, including:
+
+\begin{itemize}
+\item \textbf{Divide and conquer optimization based on monotonicity of decision points:} define 
+$$A(i, j) = \arg_k\max_{j-1 \leq k \leq i} \left( f(k-1, j-1) + h_{k} \sum_{l = k}^i w_l \right)$$
+as the decision point of dynamic programming state $(i, j)$. The transition point is monotonic with respect to $i$: $A(i, j) \leq A(i+1, j)$. Hence, we may devise a divide and conquer algorithm: define subroutine \verb|solve(j, l, r, vl, vr)|, which computes DP values $f(l \ldots r, j)$, where the interval of decision points is \verb|[vl, vr]|. We first compute the DP value of $m = (l+r)/2$ by examining all points in \verb|[vl, vr]|, and let \verb|vm| denote the decision point for $f(m, j)$. The remaining part can be solved recursively by calling \verb|solve(j, l, m-1, vl, vm)| and \verb|solve(j, m+1, r, vm, vr)|. The running time for computing $f(\cdot, j)$ is $O(n \log n)$ (which can be seen from the recursion tree, and the total running time is $O(nk \log n)$.
+\item \textbf{Convex hull trick:} note that for fixed $j$, $f(k-1, j-1) + h_{k} \sum_{l = k}^i w_l$ is a linear function with respect to $s_i = \sum_{l = 1}^i w_l$. Hence, we may maintain an upper convex hull (which is a piecewise linear function) of these linear functions.
+\item \textbf{Lambda optimization:} let $g(k)$ denote the optimal answer if we partition them into $k$ groups. It can be seen that $g(k)$ is not only monotonic with $k$, but also convex: $g(k+1) - g(k) \leq g(k) - g(k-1)$. We introduce a parameter $\lambda$, the penalty for creating a new group, and remove the constraint of number of groups (which is quite similar to Lagrange multipliers), yielding a regularized unconstrained version of the original problem:
+
+\begin{quote}
+Given $n$ pairs $\{(w_i, h_i)\}_{i=1}^n$, partition $\{1, 2, \cdots, n\}$ into $k$ sets $S_1, S_2, \cdots, S_k$ (where $k$ is variable), such that 
+$$ \sum_{i=1}^k \left(-\lambda + \min_{j \in S_i} h_j \cdot \sum_{j \in S_i} w_j\right)$$
+is maximized.
+\end{quote}
+
+This can again be solved by dynamic programming. Let $f(i)$ denote the optimal answer for partitioning the first $i$ pieces of wood into several groups (of course we should still sort them by their heights), and the state transition is
+
+$$ f(i) = \max_{0 \leq k \leq i} \left(f(k-1) - \lambda  + h_{k} \sum_{l = k}^i w_l \right). $$
+
+This can be done in $O(n^2)$ time (actually the transition can be optimized to $O(n \log n)$ or even $O(n)$ which we do not explain here).
+
+After completing the dynamic programming, we may recover the number of groups formed. The number of groups formed is negatively correlated with the penalty $\lambda$ due to the convexity of $g$. Hence we may binary search for parameter $\lambda$ such that the number of groups formed is the required $k$.
+\end{itemize}
 
 \end{document}
