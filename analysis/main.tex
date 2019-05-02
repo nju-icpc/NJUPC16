@@ -47,7 +47,7 @@ Submissions & 4 & 100 & 77 & 32 & 31 & 27 & 0 & 0 & 64 & 0 \\ \hline
 
 \subsection*{Division 2}
 
-In Division 2, there were 971 submissions: 20 in C, 858 in C++, 35 in Java, 2 in Python2 and 56 in Python3. Submissions to each problem are listed in the following table.
+In Division 2, there were 971 submissions: 20 in C, 858 in C++, 35 in Java, 2 in Python 2 and 56 in Python 3. Submissions to each problem are listed in the following table.
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|rrrrrrrrrr|}
@@ -93,13 +93,13 @@ Also note that $S(n-2)$ is a prefix of $S(n)$, so, for large $n$, we may generat
 
 This problem consists of two independent parts. The first is to find the best possible rank, which can be solved greedily: do the problems in ascending order of time consumption.
 
-The second part is to maximize the number of first solved problems. For Div.2 participants, trying all permutations in factorial time is sufficient. For Div.1, we may use dynamic programming: let $f(S)$ denote the maximum number of first solved problems while the set of solved problems is $S$. The state transition can be made by augmenting one element to $S$, in overall $O(m 2^m)$ time.
+The second part is to maximize the number of first solved problems. For Div.2 participants, trying all permutations is sufficient. For Div.1, we may use dynamic programming: let $f(S)$ denote whether $S$ can be the set of first solved problems. The state transition can be made by trying to augment one element to $S$, in overall $O(m 2^m)$ time.
 
 \section*{Problem D: Match Maker}
 
-The first observations is that, if the answer is \texttt{YES}, then the length of the matchstick can integer, which involves some number theoretic argument. Now the problem is transformed to, given $N$ integer, determine if we may choose at least half of the numbers such that their greatest common divisor is greater than 1.
+The first observation is that, if the answer is \texttt{YES}, then the length of the matchstick can be integer. This involves some simple number theoretic argument. Now the problem is transformed to, given $N$ integer, determine if we may choose at least half of the numbers such that their greatest common divisor is greater than 1, or in other words, we want to find any integer greater than 1 dividing at least of these numbers.
 
-Factorizing each number obviously can not fit in time limit. The key point is to introduce randomization. We may randomly pick a number, then, with probability of at least $1/2$, the gcd is a factor of the number if the answer is true. Hence  for each prime factor of this number we may check if it divides at least half of all the numbers (checking all factors still can't fit in time because there can be too many factors for integers up to $10^{12}$). This is a single-sided error Monte Carlo with error probability $1/2$, which could be amplified through repetition. The total running time is $O(T(\sqrt{x} + n \log x))$ where $T$ is the number of repetitions.
+Factorizing each number obviously can not fit in time limit. The key point is to introduce randomization. We may randomly pick a number, then, with probability of at least $1/2$, the common divisor is a factor of the chosen number. Hence for each prime factor of this number we may check if it divides at least half of all the numbers (checking all factors still can't fit in time because there can be too many factors for integers up to $10^{12}$). This is a single-sided error Monte Carlo with error probability $1/2$, which could be amplified through repetition. The total running time is $O(T(\sqrt{x} + n \log x))$ where $T$ is the number of repetitions.
 
 \section*{Problem E: Mission Probable}
 
@@ -119,17 +119,17 @@ Another type of solutions is, noticing that the answer is exactly the the maximu
 
 This was probably the most interesting problem. For Div.2, the main idea is to construct the target number bit-wise: first, push constant 1 to the stack; then we may use \texttt{add 0} to left shift the current number, and \texttt{add 1} to set the current bit. The total number of instructions required is around 130, fairly easy to fit in the limit.
 
-For Div.1, the program can contain at most 60 instructions, which is much more stringent. We may apply a technique called `Method of Four Russians' to reduce the number of instructions. M4R decomposes a problem into several small subproblems,  for each possible instance of subproblem, preprocesses its answer, and finally combines these answers. In this problem, we may construct the number in some base $K$ other than 2. We may first construct the numbers $1, 2, \cdots, K$ on the stack, then the target number can be constructed in multiply-K-add-D fashion. The total number of instructions required is $O(N / \log K + K)$ for an $B$-bit integer, which is $O(B / \log B)$ if we take $K = \Theta(B / \log B)$. Compared with the original $O(B)$ bit-wise construction, this is an improvement of an order of magnitude when $B$ is large! In fact, any base between 7 and 12 can pass our test data.
+For Div.1, the program can contain at most 60 instructions, which is much more stringent. We may apply a technique called `Method of Four Russians' to reduce the number of instructions. M4R decomposes a problem into several small subproblems,  for each possible instance of subproblem, precomputes its answer, and finally combines these answers. In this problem, we may construct the number in some base $K$ other than 2. We may first construct the numbers $1, 2, \cdots, K$ on the stack, then the target number can be constructed in multiply-K-add-D fashion. The total number of instructions required is $O(B / \log K + K)$ for a $B$-bit integer, which is $O(B / \log B)$ if we take $K = \Theta(B / \log B)$. Compared with the original $O(B)$ bit-wise construction, this is an improvement of an order of magnitude when $B$ is large! In fact, any base between 7 and 12 can pass our test data.
 
 In both divisions, there was one corner case $N = 0$. Since the judges are all nice and friendly people, this was included in the sample data.
 
 \section*{Problem H: Road Construction}
 
-This is a quite standard geometry problem. The main idea of the solution is, the optimal road must be parallel or perpendicular to some line formed by connecting two given points (otherwise we may translate or rotate the road to improve our answer). There are $O(n^2)$ possible directions.
+This was a quite standard geometry problem. The main idea of the solution is, the optimal road must be parallel or perpendicular to some line formed by connecting two given points (otherwise we may rotate the road to improve our answer). There are $O(n^2)$ possible directions.
 
 We compute the optimal answer for each direction. Let $\hat{\vec{d}}$ be the unit direction vector, we may compute $b_i = \vec{x_i} \times \hat{\vec{d}}$ for each point $\vec{x}$. Then, we may sort these numbers in $O(n \log n)$ time, and the answer is exactly half of the difference between the two middle numbers. Also the answer can be found by linear time median algorithm.
 
-There is also a solution based on binary search on the answer, but we think this is much harder to implement.
+There is also a solution based on binary search on the answer, but we think that is much harder in view of implementation.
 
 \section*{Problem I: Welcome Party}
  
@@ -137,7 +137,7 @@ We restate the problem in mathematical language: given $n$ pairs of integers $\{
 
 $$ \min_{S, T} | \max_{i \in S} x_i - \max_{j \in T} y_j | $$
 
-where $S, T$ are nonempty sets and $(S, T)$ is a partition of $[n] = \{1, 2, \cdots, n\}$.
+where $S, T$ are nonempty sets and $(S, T)$ is a partition of $\{1, 2, \cdots, n\}$.
 
 We say $\hat{i} = \arg\max_{i \in S} x_i$ is $x$-critical, and $y$-critical is defined likewise. If $i$ is $x$-critical, then $j (\neq i)$ can be $y$-critical if and only if for all $1 \leq k \leq n$, $x_k \leq x_i$ or $y_k \leq y_j$. A na\"ive solution enumerates all $x$-critical $y$-critical index pair and check if it is valid, in overall cubic time. However, we may only enumerate $x$-critical index $i$, and $j$ can be $y$-critical iff $y_j \geq \max\{y_k : k \neq i, j, x_k > x_i\}$. This can be implemented in $O(n^2)$. With some data structure work this can be improved to $O(n \log n)$.
 
@@ -153,14 +153,14 @@ We can relabel the pairs such that $\{h_i\}$ is non-decreasing, and relabel the 
 
 $$ f(i,j) = \max_{j \leq k \leq i} \left( f(k-1, j-1) + h_{k} \sum_{l = k}^i w_l \right). $$
 
-This is a 2D/1D dynamic program running in $O(n^2 k)$, sufficient to pass Div.2 test data. 
+This is a 2D/1D dynamic program in $O(n^2 k)$ time, sufficient to pass Div.2 test data.
 
 For Div.1 participants, some further observations is needed. The transition cost $C(k, i) = h_{k} \sum_{l = k}^i w_l$ has the Monge property: $C(i, j) + C(i', j') \leq C(i, j') + C(i', j)$ for $i \leq i' \leq j \leq j'$, hence we may apply any standard dynamic programming optimization technique, including:
 
 \begin{itemize}
 \item \textbf{Divide and conquer optimization based on monotonicity of decision points:} define 
 $$A(i, j) = \arg_k\max_{j-1 \leq k \leq i} \left( f(k-1, j-1) + h_{k} \sum_{l = k}^i w_l \right)$$
-as the decision point of dynamic programming state $(i, j)$. The transition point is monotonic with respect to $i$: $A(i, j) \leq A(i+1, j)$. Hence, we may devise a divide and conquer algorithm: define subroutine \verb|solve(j, l, r, vl, vr)|, which computes DP values $f(l \ldots r, j)$, where the interval of decision points is \verb|[vl, vr]|. We first compute the DP value of $m = (l+r)/2$ by examining all points in \verb|[vl, vr]|, and let \verb|vm| denote the decision point for $f(m, j)$. The remaining part can be solved recursively by calling \verb|solve(j, l, m-1, vl, vm)| and \verb|solve(j, m+1, r, vm, vr)|. The running time for computing $f(\cdot, j)$ is $O(n \log n)$ (which can be seen from the recursion tree, and the total running time is $O(nk \log n)$.
+as the decision point of dynamic programming state $(i, j)$. The decision point is monotonic with respect to $i$: $A(i, j) \leq A(i+1, j)$. Hence, we may devise a divide and conquer algorithm: define subroutine \verb|solve(j, l, r, vl, vr)|, which computes DP values $f(l \ldots r, j)$, where the interval of decision points is \verb|[vl, vr]|. We first compute the DP value of $m = (l+r)/2$ by examining all points in \verb|[vl, vr]|, and let \verb|vm| denote the decision point for $f(m, j)$. The remaining part can be solved recursively by calling \verb|solve(j, l, m-1, vl, vm)| and \verb|solve(j, m+1, r, vm, vr)|. The running time for computing $f(\cdot, j)$ is $O(n \log n)$ (which can be seen from the recursion tree), and the total running time is $O(nk \log n)$.
 \item \textbf{Convex hull trick:} note that for fixed $j$, $f(k-1, j-1) + h_{k} \sum_{l = k}^i w_l$ is a linear function with respect to $s_i = \sum_{l = 1}^i w_l$. Hence, we may maintain an upper convex hull (which is a piecewise linear function) of these linear functions.
 \item \textbf{Lambda optimization:} let $g(k)$ denote the optimal answer if we partition them into $k$ groups. It can be seen that $g(k)$ is not only monotonic with $k$, but also convex: $g(k+1) - g(k) \leq g(k) - g(k-1)$. We introduce a parameter $\lambda$, the penalty for creating a new group, and remove the constraint of number of groups (which is quite similar to Lagrange multipliers), yielding a regularized unconstrained version of the original problem:
 
@@ -174,7 +174,7 @@ This can again be solved by dynamic programming. Let $f(i)$ denote the optimal a
 
 $$ f(i) = \max_{0 \leq k \leq i} \left(f(k-1) - \lambda  + h_{k} \sum_{l = k}^i w_l \right). $$
 
-This can be done in $O(n^2)$ time (actually the transition can be optimized to $O(n \log n)$ or even $O(n)$ which we won't describe here).
+This can be done in $O(n^2)$ time (actually the transition can be optimized to $O(n \log n)$ by convex hull trick or even $O(n)$ which we won't describe here).
 
 After completing the dynamic programming, we may recover the number of groups formed, which is negatively correlated with the penalty $\lambda$ due to the convexity of $g$. Hence we may binary search for parameter $\lambda$ such that the number of groups formed is the required $k$.
 \end{itemize}

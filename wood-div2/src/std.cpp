@@ -17,8 +17,8 @@ typedef unsigned long long ULL;
 int n, k;
 vector<pair<LL, LL>> b;
 LL tot;
-LL dp[8192][8192];
-int pre[8192][8192];
+LL dp[1280][1280];
+int pre[1280][1280];
 
 int main() {
     scanf("%d%d", &n, &k);
