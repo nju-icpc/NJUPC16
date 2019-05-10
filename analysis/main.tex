@@ -68,7 +68,7 @@ $$ \sum_{r = 1}^n \sum_{j=0}^{n-1} \sum_{k = a-c_r+1}^{b-c_r} \frac{f_r(n-1, j, 
 
 and the state transition can be made as follows:
 
-$$ f_r(i, j, k) = f_r(i-1, j, k) + f(i-1, j-1, k-c_i). $$
+$$ f_r(i, j, k) = f_r(i-1, j, k) + f_r(i-1, j-1, k-c_i). $$
 
 \section*{Problem 2A: Coffee and Chicken}
 The solution to this problem is quite simple: try all possible starting points and directions, and check if the word \texttt{COFFEE} or \texttt{CHICKEN} can be formed.
@@ -120,8 +120,6 @@ Another type of solutions is, noticing that the answer is exactly the the maximu
 This was probably the most interesting problem. For Div.2, the main idea is to construct the target number bit-wise: first, push constant 1 to the stack; then we may use \texttt{add 0} to left shift the current number, and \texttt{add 1} to set the current bit. The total number of instructions required is around 130, fairly easy to fit in the limit.
 
 For Div.1, the program can contain at most 60 instructions, which is much more stringent. We may apply a technique called `Method of Four Russians' to reduce the number of instructions. M4R decomposes a problem into several small subproblems,  for each possible instance of subproblem, precomputes its answer, and finally combines these answers. In this problem, we may construct the number in some base $K$ other than 2. We may first construct the numbers $1, 2, \cdots, K$ on the stack, then the target number can be constructed in multiply-K-add-D fashion. The total number of instructions required is $O(B / \log K + K)$ for a $B$-bit integer, which is $O(B / \log B)$ if we take $K = \Theta(B / \log B)$. Compared with the original $O(B)$ bit-wise construction, this is an improvement of an order of magnitude when $B$ is large! In fact, any base between 7 and 12 can pass our test data.
-
-In both divisions, there was one corner case $N = 0$. Since the judges are all nice and friendly people, this was included in the sample data.
 
 \section*{Problem H: Road Construction}
 
